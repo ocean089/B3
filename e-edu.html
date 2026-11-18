@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="narrative">
   <meta name="design-style" content="sticker">
-  <title>因材網 e度數位學習夥伴｜國小師生互動指南與提示詞寶庫</title>
+  <title>e度 AI 學習夥伴系統操作指南｜國小師生互動手冊</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js" defer></script>
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
   <style>
     :root {
       color-scheme: light;
 
-      /* Page and surfaces */
+      /* Page and surfaces (Sticker style) */
       --background: #fef7ff;
       --surface-container-low: #ffffff;
       --surface-container: #f8eef8;
       --surface-container-high: #f2e8f2;
 
-      /* Soft tint fills for dark-plum readable stickers & wells */
-      --tint-pink: #fdeaf5;
-      --tint-grape: #f3ecfa;
-      --tint-sky: #e6f6fc;
-      --tint-amber: #fff3e5;
-      --tint-green: #eaf7ef;
+      /* Extra cheerful educational pastel wells (for badge fills under dark plum ink) */
+      --sky-container: #d9f3fc;
+      --grape-container: #efe6fb;
+      --tangerine-container: #ffe9d2;
+      --mint-container: #d8f6e5;
+      --sun-container: #fff3c4;
 
       /* Ink */
       --on-surface: #2e1a28;
@@ -43,8 +43,18 @@
       --secondary: #7c52aa;
       --on-secondary: #ffffff;
       --tertiary: #0096cc;
+      --tangerine: #d96a00;
+      --tangerine-ink: #9a4700;
+      --sunflower: #e6a800;
       --error: #c53030;
+      --error-container: #fde2e2;
       --on-error: #ffffff;
+
+      /* Semantic */
+      --positive: #157f4b;
+      --on-positive: #ffffff;
+      --warning: #9a5b00;
+      --focus: #c2207f;
 
       /* Data series */
       --data-1: #c2207f;
@@ -53,22 +63,35 @@
       --data-4: #d96a00;
       --data-context: #c8b8d0;
 
-      /* Semantic */
-      --positive: #15803d;
-      --warning: #b45309;
-      --focus: var(--primary);
-
-      /* Fonts */
+      /* Fonts (Non-Latin first, single cohesive family voice) */
       --font-headline: 'Noto Sans TC', 'DM Sans', sans-serif;
       --font-body: 'Noto Sans TC', 'DM Sans', sans-serif;
       --font-label: 'Noto Sans TC', 'DM Sans', sans-serif;
 
       /* Type scale (Narrative) */
-      --display-size: clamp(2.15rem, 1.4rem + 3vw, 3.6rem);
-      --headline-size: clamp(1.55rem, 1.15rem + 1.5vw, 2.25rem);
-      --subhead-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.4rem);
-      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-      --label-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.85rem);
+      --display-size: clamp(2.15rem, 1.4rem + 3.2vw, 3.6rem);
+      --headline-size: clamp(1.55rem, 1.2rem + 1.5vw, 2.25rem);
+      --subhead-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.375rem);
+      --body-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.85rem);
+
+      /* Shape */
+      --rounded: 1.25rem;
+      --rounded-lg: 2rem;
+      --rounded-full: 9999px;
+
+      /* Style effects */
+      --shadow-pink: 0 6px 18px rgb(224 64 160 / 0.18);
+      --shadow-pink-deep: 0 12px 30px rgb(224 64 160 / 0.30);
+      --shadow-grape: 0 6px 18px rgb(124 82 170 / 0.18);
+      --shadow-grape-deep: 0 12px 28px rgb(124 82 170 / 0.30);
+      --shadow-sky: 0 6px 18px rgb(0 150 204 / 0.18);
+      --shadow-sky-deep: 0 12px 28px rgb(0 150 204 / 0.28);
+      --shadow-tangerine: 0 6px 18px rgb(217 106 0 / 0.18);
+      --shadow-mint: 0 6px 18px rgb(21 127 75 / 0.18);
+      --pop-scale: scale(1.03);
+      --lift: translateY(-4px);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
       /* Spacing scale (4pt base) */
       --space-xs: 0.25rem;
@@ -77,27 +100,11 @@
       --space-lg: 1.5rem;
       --space-xl: 2.5rem;
       --space-2xl: 4rem;
-      --space-3xl: 6rem;
-
-      /* Shape */
-      --rounded: 1rem;
-      --rounded-lg: 2rem;
-      --rounded-full: 9999px;
-
-      /* Style effects */
-      --shadow-pink: 0 4px 16px rgb(224 64 160 / 0.2);
-      --shadow-pink-deep: 0 10px 28px rgb(224 64 160 / 0.32);
-      --shadow-grape: 0 4px 16px rgb(124 82 170 / 0.2);
-      --shadow-grape-deep: 0 10px 28px rgb(124 82 170 / 0.32);
-      --shadow-sky: 0 4px 16px rgb(0 150 204 / 0.2);
-      --shadow-sky-deep: 0 10px 28px rgb(0 150 204 / 0.3);
-      --pop-scale: scale(1.03);
-      --lift: translateY(-4px);
+      --space-3xl: 5.5rem;
 
       /* Motion */
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
       --dur-micro: 120ms;
       --dur-short: 220ms;
       --dur-long: 420ms;
@@ -105,25 +112,31 @@
 
     /* Base reset */
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { overflow-x: clip; margin: 0; padding: 0; scroll-behavior: smooth; }
-    header { position: static !important; }
-
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
     body {
-      background-color: var(--background);
-      color: var(--on-surface);
       font-family: var(--font-body);
       font-size: var(--body-size);
       line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
+      color: var(--on-surface);
+      background-color: var(--background);
+      background-image:
+        radial-gradient(circle at 12% 8%, var(--sky-container) 0%, transparent 26%),
+        radial-gradient(circle at 88% 12%, var(--sun-container) 0%, transparent 24%),
+        radial-gradient(circle at 82% 55%, var(--grape-container) 0%, transparent 28%),
+        radial-gradient(circle at 14% 78%, var(--mint-container) 0%, transparent 25%);
+      background-attachment: scroll;
     }
+    header { position: static !important; }
+    button, input, select, textarea { font-family: inherit; }
+    img, svg { max-width: 100%; }
 
-    button, input, select, textarea {
-      font-family: inherit;
-      font-size: inherit;
-      color: inherit;
-    }
-
-    *:focus-visible {
+    /* Focus visibility */
+    :focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 2px;
     }
@@ -131,172 +144,131 @@
     .page-grid {
       display: grid;
       gap: var(--space-2xl);
-      padding: var(--space-xl) var(--space-lg) var(--space-3xl);
-      max-width: 1180px;
+      padding: var(--space-lg);
+      max-width: 1220px;
       margin: 0 auto;
       overflow: hidden;
     }
     .page-grid * { min-width: 0; }
 
-    /* Typography */
-    .kicker {
+    /* Typography helpers */
+    .display {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: var(--display-size);
+      line-height: 1.12;
+      color: var(--on-surface);
+      margin: 0;
+      letter-spacing: 0;
+    }
+    .display em, .section-title em {
+      font-style: normal;
+      color: var(--primary);
+    }
+    .section-title {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: var(--headline-size);
+      line-height: 1.2;
+      color: var(--on-surface);
+      margin: 0;
+      letter-spacing: 0;
+    }
+    .subhead {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      line-height: 1.35;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .prose-lead {
+      max-width: 65ch;
+      color: var(--on-surface-variant);
+      margin: var(--space-sm) 0 0 0;
+    }
+    .kicker-pill {
       display: inline-flex;
       align-items: center;
       gap: var(--space-xs);
       font-family: var(--font-label);
       font-size: var(--label-size);
       font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--secondary);
-      background: var(--tint-grape);
       padding: var(--space-xs) var(--space-md);
       border-radius: var(--rounded-full);
-      margin-bottom: var(--space-sm);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      width: fit-content;
     }
+    .kicker-pill.sky { background: var(--sky-container); color: var(--on-surface); }
+    .kicker-pill.grape { background: var(--grape-container); color: var(--secondary); }
+    .kicker-pill.mint { background: var(--mint-container); color: var(--positive); }
+    .kicker-pill.tangerine { background: var(--tangerine-container); color: var(--tangerine-ink); }
+    .kicker-pill.sun { background: var(--sun-container); color: var(--on-surface); }
 
-    .display {
-      font-family: var(--font-headline);
-      font-weight: 900;
-      font-size: var(--display-size);
-      letter-spacing: -0.02em;
-      line-height: 1.12;
-      color: var(--on-surface);
-      margin: 0 0 var(--space-md);
-    }
-    .display em {
-      font-style: normal;
-      color: var(--primary);
-    }
-
-    h2 {
-      font-family: var(--font-headline);
-      font-weight: 900;
-      font-size: var(--headline-size);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: var(--on-surface);
-      margin: 0 0 var(--space-sm);
-    }
-    h2 em {
-      font-style: normal;
-      color: var(--primary);
-    }
-
-    h3 {
-      font-family: var(--font-headline);
-      font-weight: 800;
-      font-size: var(--subhead-size);
-      line-height: 1.3;
-      color: var(--on-surface);
-      margin: 0 0 var(--space-xs);
-    }
-
-    p {
-      margin: 0 0 var(--space-md);
-      max-width: 65ch;
-      color: var(--on-surface);
-    }
-    p:last-child { margin-bottom: 0; }
-
-    .muted {
-      color: var(--on-surface-variant);
-    }
-
-    .section-head {
-      margin-bottom: var(--space-lg);
-    }
-    .section-head p {
-      color: var(--on-surface-variant);
-      max-width: 68ch;
-    }
-
-    /* Sticker Cards & Hero */
-    .hero-panel {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-pink);
-      padding: var(--space-xl);
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: var(--space-xl);
-      align-items: center;
-    }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-md);
-    }
-
-    .card {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded);
-      box-shadow: var(--shadow-pink);
-      padding: var(--space-lg);
-    }
-    .card-sky { box-shadow: var(--shadow-sky); }
-    .card-grape { box-shadow: var(--shadow-grape); }
-
-    .metric-card {
-      background: var(--surface-container);
-      border-radius: var(--rounded);
-      padding: var(--space-md);
+    /* Quick Jump Navigation Bar */
+    .quick-nav {
       display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-full);
+      padding: var(--space-sm) var(--space-md);
+      box-shadow: var(--shadow-grape);
     }
-    .metric-card.tint-pink { background: var(--tint-pink); }
-    .metric-card.tint-sky { background: var(--tint-sky); }
-    .metric-card.tint-grape { background: var(--tint-grape); }
-
-    .metric-num {
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
       font-weight: 900;
-      font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.4rem);
-      line-height: 1.05;
-      font-variant-numeric: tabular-nums;
-      color: var(--primary);
+      font-size: 1.05rem;
+      color: var(--on-surface);
+      padding-left: var(--space-xs);
     }
-    .metric-card.tint-grape .metric-num { color: var(--secondary); }
-    .metric-card.tint-sky .metric-num { color: var(--on-surface); }
-
-    .metric-label {
-      font-size: var(--label-size);
-      font-weight: 700;
-      color: var(--on-surface-variant);
+    .brand-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--rounded-full);
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 900;
+      box-shadow: var(--shadow-pink);
     }
-
-    /* Pills, Buttons, Chips */
     .nav-pills {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-sm);
-      margin-top: var(--space-lg);
+      align-items: center;
     }
 
+    /* Buttons & Pills */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: var(--space-xs);
-      border: none;
-      border-radius: var(--rounded-full);
-      padding: var(--space-sm) var(--space-lg);
+      gap: var(--space-sm);
       min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: 2px solid transparent;
+      font-size: 0.95rem;
       font-weight: 700;
-      font-size: var(--body-size);
       cursor: pointer;
       text-decoration: none;
+      color: var(--on-surface);
+      background: var(--surface-container);
       transition: transform var(--dur-short) var(--ease-bounce),
                   box-shadow var(--dur-short) var(--ease-out),
-                  background-color var(--dur-micro) var(--ease-out);
+                  background-color var(--dur-short) var(--ease-out);
     }
     .btn:hover { transform: var(--pop-scale); }
     .btn:active { transform: scale(0.97); }
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
 
     .btn-primary {
       background: var(--primary);
@@ -312,548 +284,270 @@
     }
     .btn-secondary:hover { box-shadow: var(--shadow-grape-deep); }
 
-    .btn-soft {
-      background: var(--surface-container);
+    .btn-sky {
+      background: var(--sky-container);
       color: var(--on-surface);
       box-shadow: var(--shadow-sky);
     }
-    .btn-soft:hover { background: var(--surface-container-high); }
+    .btn-sky:hover { box-shadow: var(--shadow-sky-deep); }
 
-    .btn-ghost {
-      background: transparent;
-      color: var(--primary);
-      padding: var(--space-xs) var(--space-md);
-      box-shadow: none;
+    .btn-mint {
+      background: var(--positive);
+      color: var(--on-positive);
+      box-shadow: var(--shadow-mint);
     }
-    .btn-ghost:hover { background: var(--tint-pink); }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      border: 2px solid var(--outline-variant);
+    .btn-outline {
       background: var(--surface-container-low);
       color: var(--on-surface);
-      border-radius: var(--rounded-full);
-      padding: var(--space-xs) var(--space-md);
-      min-height: 44px;
-      font-size: var(--label-size);
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform var(--dur-short) var(--ease-bounce),
-                  background-color var(--dur-micro) var(--ease-out),
-                  box-shadow var(--dur-short) var(--ease-out);
+      border-color: var(--outline-variant);
     }
-    .chip:hover { transform: var(--pop-scale); background: var(--surface-container); }
-    .chip[aria-pressed="true"],
-    .chip.is-active {
-      background: var(--primary);
-      color: var(--on-primary);
-      border-color: var(--primary);
-      box-shadow: var(--shadow-pink);
-    }
-    .chip.chip-secondary[aria-pressed="true"],
-    .chip.chip-secondary.is-active {
-      background: var(--secondary);
-      color: var(--on-secondary);
-      border-color: var(--secondary);
-      box-shadow: var(--shadow-grape);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      border-radius: var(--rounded-full);
-      padding: var(--space-xs) var(--space-md);
-      font-size: var(--label-size);
-      font-weight: 700;
-      background: var(--primary-container);
-      color: var(--on-primary-container);
-    }
-    .badge-grape {
-      background: var(--tint-grape);
-      color: var(--secondary);
-    }
-    .badge-sky {
-      background: var(--tint-sky);
-      color: var(--on-surface);
-    }
-    .badge-green {
-      background: var(--tint-green);
-      color: var(--positive);
-    }
-    .badge-amber {
-      background: var(--tint-amber);
-      color: var(--warning);
-    }
-
-    /* Section 1: Two-Track Architecture */
-    .spirit-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-      gap: var(--space-lg);
-      align-items: start;
-    }
-
-    .spirit-selector-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
-      gap: var(--space-sm);
-    }
-
-    .spirit-btn {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      width: 100%;
-      text-align: left;
-      background: var(--surface-container-low);
-      border: 2px solid transparent;
-      border-radius: var(--rounded);
-      padding: var(--space-sm) var(--space-md);
-      min-height: 60px;
-      cursor: pointer;
-      box-shadow: var(--shadow-grape);
-      transition: transform var(--dur-short) var(--ease-bounce),
-                  box-shadow var(--dur-short) var(--ease-out),
-                  background-color var(--dur-micro) var(--ease-out);
-    }
-    .spirit-btn:hover {
-      transform: var(--lift);
-      box-shadow: var(--shadow-pink);
-    }
-    .spirit-btn.is-active {
-      background: var(--tint-pink);
-      border-color: var(--primary);
-      box-shadow: var(--shadow-pink-deep);
-    }
-
-    .spirit-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--rounded-full);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .btn-outline:hover {
       background: var(--surface-container);
-    }
-    .spirit-avatar-lg {
-      width: 72px;
-      height: 72px;
+      border-color: var(--secondary);
     }
 
-    .spirit-btn-meta {
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--on-surface);
+      text-decoration: none;
+      background: var(--surface-container);
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  background-color var(--dur-short) var(--ease-out);
+    }
+    .nav-link:hover {
+      background: var(--primary-container);
+      transform: var(--pop-scale);
+    }
+
+    /* Hero Section */
+    .hero-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-pink);
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+    .stat-chip {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
-    .spirit-btn-name {
-      font-weight: 800;
-      font-size: var(--body-size);
-      color: var(--on-surface);
-      line-height: 1.2;
-    }
-    .spirit-btn-sub {
-      font-size: var(--label-size);
-      color: var(--on-surface-variant);
-      line-height: 1.2;
-    }
-
-    .spirit-detail-card {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-pink);
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .spirit-detail-head {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-    }
-
-    .dialogue-bubble {
-      background: var(--surface-container);
-      border-radius: var(--rounded);
-      padding: var(--space-md);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    .bubble-row {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--rounded);
-      background: var(--surface-container-low);
-    }
-    .bubble-row.is-edu {
-      background: var(--tint-sky);
-    }
-    .bubble-who {
-      font-size: var(--label-size);
-      font-weight: 800;
-      color: var(--secondary);
-    }
-    .bubble-row.is-edu .bubble-who {
-      color: var(--primary);
-    }
-
-    /* Subject Constellation Simulator */
-    .constellation-box {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-sky);
-      padding: var(--space-xl);
-      margin-top: var(--space-lg);
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: var(--space-xl);
-      align-items: center;
-    }
-
-    .constellation-controls {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .control-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
-    }
-    .control-label {
-      font-size: var(--label-size);
-      font-weight: 800;
-      color: var(--on-surface-variant);
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-xs);
-    }
-
-    .constellation-svg-wrap {
-      background: var(--surface-container);
-      border-radius: var(--rounded);
-      padding: var(--space-md);
-      min-height: 290px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: var(--space-sm);
-    }
-
-    .node-status-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-sm);
-    }
-    .node-pill-card {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded);
-      padding: var(--space-sm) var(--space-md);
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-sm);
-      box-shadow: var(--shadow-grape);
-    }
-    .node-pill-card.is-highlighted {
-      background: var(--tint-pink);
-      box-shadow: var(--shadow-pink);
-    }
-    .node-pill-card.is-remedy {
-      background: var(--tint-amber);
-    }
-    .node-pill-card.is-advance {
-      background: var(--tint-green);
-    }
-
-    /* Section 2: Pedagogy & Dynamic Scaffolding Simulator */
-    .pedagogy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-      gap: var(--space-lg);
-    }
-    .pedagogy-card {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded);
-      padding: var(--space-lg);
-      box-shadow: var(--shadow-pink);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    .pedagogy-card:nth-child(3n+2) { box-shadow: var(--shadow-sky); }
-    .pedagogy-card:nth-child(3n+3) { box-shadow: var(--shadow-grape); }
-
-    .pedagogy-icon-pill {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--rounded-full);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--tint-pink);
-      color: var(--primary);
-    }
-    .pedagogy-card:nth-child(2) .pedagogy-icon-pill {
-      background: var(--tint-sky);
-      color: var(--on-surface);
-    }
-    .pedagogy-card:nth-child(3) .pedagogy-icon-pill {
-      background: var(--tint-grape);
-      color: var(--secondary);
-    }
-    .pedagogy-card:nth-child(4) .pedagogy-icon-pill {
-      background: var(--tint-green);
-      color: var(--positive);
-    }
-
-    .scaffold-sim {
-      margin-top: var(--space-lg);
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-grape);
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-    }
-
-    .scaffold-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: var(--space-md);
-    }
-
-    .scaffold-track {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--space-sm);
-    }
-
-    .step-node {
-      background: var(--surface-container);
-      border: 2px solid transparent;
-      border-radius: var(--rounded);
-      padding: var(--space-sm) var(--space-md);
-      text-align: left;
-      cursor: pointer;
-      min-height: 64px;
-      transition: transform var(--dur-short) var(--ease-bounce),
-                  background-color var(--dur-micro) var(--ease-out);
-    }
-    .step-node:hover { transform: var(--lift); }
-    .step-node.is-current {
-      background: var(--tint-pink);
-      border-color: var(--primary);
-      box-shadow: var(--shadow-pink);
-    }
-    .step-node.is-done {
-      background: var(--tint-green);
-    }
-    .step-num {
-      display: block;
-      font-size: var(--label-size);
-      font-weight: 800;
-      color: var(--secondary);
-    }
-    .step-title {
-      font-weight: 800;
-      font-size: var(--body-size);
-      color: var(--on-surface);
-    }
-
-    .scaffold-stage {
-      background: var(--surface-container);
-      border-radius: var(--rounded);
-      padding: var(--space-lg);
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
-      gap: var(--space-lg);
-      align-items: center;
-    }
-
-    .scaffold-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: var(--space-md);
-    }
-
-    /* Section 3: RISE 4 Steps & Builder */
-    .rise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
-      gap: var(--space-lg);
-    }
-
-    .rise-card {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded);
-      padding: var(--space-lg);
-      box-shadow: var(--shadow-pink);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    .rise-card:nth-child(2) { box-shadow: var(--shadow-sky); }
-    .rise-card:nth-child(3) { box-shadow: var(--shadow-grape); }
-    .rise-card:nth-child(4) { box-shadow: var(--shadow-pink); }
-
-    .rise-letter {
-      width: 52px;
-      height: 52px;
-      border-radius: var(--rounded-full);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .stat-chip.sky { background: var(--sky-container); }
+    .stat-chip.sun { background: var(--sun-container); }
+    .stat-chip.grape { background: var(--grape-container); }
+    .stat-num {
       font-weight: 900;
-      font-size: 1.5rem;
+      font-size: 1.55rem;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+    }
+    .stat-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+    .hero-art {
+      background: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .role-spotlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+      background: var(--surface-container-low);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-full);
+      box-shadow: var(--shadow-sky);
+      width: 100%;
+      justify-content: center;
+    }
+    .role-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: none;
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  color var(--dur-short) var(--ease-out),
+                  transform var(--dur-short) var(--ease-bounce);
+    }
+    .role-btn:hover { transform: var(--pop-scale); }
+    .role-btn.active {
       background: var(--primary);
       color: var(--on-primary);
       box-shadow: var(--shadow-pink);
     }
-    .rise-card:nth-child(2) .rise-letter {
-      background: var(--tertiary);
-      color: var(--on-surface);
-      box-shadow: var(--shadow-sky);
-    }
-    .rise-card:nth-child(3) .rise-letter {
-      background: var(--secondary);
-      color: var(--on-secondary);
-      box-shadow: var(--shadow-grape);
-    }
-    .rise-card:nth-child(4) .rise-letter {
-      background: var(--primary-container);
-      color: var(--on-primary-container);
-      box-shadow: var(--shadow-pink);
-    }
 
-    .rise-builder {
-      margin-top: var(--space-lg);
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-pink);
-      padding: var(--space-xl);
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: var(--space-xl);
-      align-items: start;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-md);
-      align-items: end;
-    }
-
-    .field {
+    /* Section Header Pattern */
+    .section-block {
       display: flex;
       flex-direction: column;
-      gap: var(--space-xs);
+      gap: var(--space-lg);
+      scroll-margin-top: var(--space-lg);
     }
-    .field-full {
-      grid-column: 1 / -1;
+    .section-block.spotlight-dim {
+      opacity: 0.72;
+      transition: opacity var(--dur-short) var(--ease-out);
     }
-    .field label {
-      font-size: var(--label-size);
-      font-weight: 800;
-      color: var(--on-surface);
+    .section-block.spotlight-focus {
+      opacity: 1;
     }
-
-    .field input,
-    .field select {
-      width: 100%;
-      min-height: 46px;
-      border-radius: var(--rounded-full);
-      border: 2px solid var(--outline);
-      background: var(--surface-container);
-      color: var(--on-surface);
-      padding: var(--space-xs) var(--space-md);
-      font-weight: 600;
-      transition: border-color var(--dur-micro) var(--ease-out),
-                  box-shadow var(--dur-micro) var(--ease-out);
-    }
-    .field select {
-      padding-right: var(--space-xl);
-    }
-    .field input:focus,
-    .field select:focus {
-      border-color: var(--primary);
-      outline: 3px solid var(--focus);
-      outline-offset: 2px;
-    }
-
-    .rise-preview-panel {
-      background: var(--surface-container);
-      border-radius: var(--rounded);
-      padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .prompt-output-box {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded);
-      padding: var(--space-md);
-      font-weight: 600;
-      line-height: 1.7;
-      color: var(--on-surface);
-      box-shadow: var(--shadow-grape);
-    }
-
-    .checklist-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-xs);
-    }
-
-    /* Section 4: 35-Prompt Vault */
-    .vault-toolbar {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-grape);
-      padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-      margin-bottom: var(--space-lg);
-    }
-
-    .vault-top-row {
+    .section-header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-end;
       gap: var(--space-md);
     }
-
-    .vault-progress-wrap {
+    .section-header-copy {
       display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: var(--space-xs);
+      max-width: 72ch;
     }
 
-    .progress-track {
-      width: 180px;
-      height: 14px;
+    /* Cards */
+    .card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .card.tint-sky { box-shadow: var(--shadow-sky); }
+    .card.tint-grape { box-shadow: var(--shadow-grape); }
+    .card.tint-tangerine { box-shadow: var(--shadow-tangerine); }
+    .card.tint-mint { box-shadow: var(--shadow-mint); }
+
+    /* Filter Toolbar for Sprites */
+    .toolbar-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sky);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .filter-pill {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
       border-radius: var(--rounded-full);
+      border: 2px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  background-color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out);
+    }
+    .filter-pill:hover { transform: var(--pop-scale); border-color: var(--primary); }
+    .filter-pill.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .search-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      min-width: 240px;
+    }
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+    .pill-input {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 2px solid var(--outline);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-size: 0.95rem;
+    }
+    .pill-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-container);
+    }
+
+    /* Progress Tracker Strip */
+    .progress-banner {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-grape);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .progress-track {
+      flex: 1;
+      min-width: 180px;
+      height: 16px;
       background: var(--surface-container-high);
+      border-radius: var(--rounded-full);
       overflow: hidden;
     }
     .progress-fill {
@@ -861,31 +555,20 @@
       width: 0%;
       background: var(--tertiary);
       border-radius: var(--rounded-full);
-      transition: width var(--dur-long) var(--ease-out);
+      transition: width var(--dur-long) var(--ease-bounce);
     }
 
-    .search-field {
-      min-width: 240px;
-      flex: 1 1 260px;
-      max-width: 360px;
-    }
-
-    .prompt-grid {
+    /* 9 Sprites Adaptive Grid */
+    .sprites-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
       gap: var(--space-lg);
     }
-
-    .prompt-card-wrap {
-      container-type: inline-size;
-    }
-
-    .prompt-card {
+    .sprite-card {
       background: var(--surface-container-low);
       border-radius: var(--rounded);
-      box-shadow: var(--shadow-pink);
       padding: var(--space-lg);
-      height: 100%;
+      box-shadow: var(--shadow-pink);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -893,193 +576,666 @@
       transition: transform var(--dur-short) var(--ease-bounce),
                   box-shadow var(--dur-short) var(--ease-out);
     }
-    .prompt-card-wrap:nth-child(3n+2) .prompt-card { box-shadow: var(--shadow-sky); }
-    .prompt-card-wrap:nth-child(3n+3) .prompt-card { box-shadow: var(--shadow-grape); }
-    .prompt-card:hover { transform: var(--lift); }
+    .sprite-card:nth-child(3n+2) { box-shadow: var(--shadow-sky); }
+    .sprite-card:nth-child(3n+3) { box-shadow: var(--shadow-grape); }
+    .sprite-card:hover { transform: var(--lift); }
 
-    .prompt-card-header {
+    .sprite-top {
       display: flex;
-      justify-content: space-between;
+      gap: var(--space-md);
       align-items: flex-start;
-      gap: var(--space-sm);
     }
-    .prompt-spirit-tag {
-      display: inline-flex;
+    .sprite-avatar {
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      display: flex;
       align-items: center;
-      gap: var(--space-xs);
-      font-size: var(--label-size);
-      font-weight: 800;
-      color: var(--secondary);
-      background: var(--tint-grape);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--rounded-full);
+      justify-content: center;
+      padding: var(--space-xs);
     }
+    .sprite-avatar.sky { background: var(--sky-container); }
+    .sprite-avatar.grape { background: var(--grape-container); }
+    .sprite-avatar.tangerine { background: var(--tangerine-container); }
+    .sprite-avatar.mint { background: var(--mint-container); }
+    .sprite-avatar.sun { background: var(--sun-container); }
 
-    .prompt-text-box {
+    .sprite-meta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .sprite-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+    .sprite-num {
+      font-size: var(--label-size);
+      font-weight: 900;
+      padding: 2px 10px;
+      border-radius: var(--rounded-full);
+      background: var(--on-surface);
+      color: var(--surface-container-low);
+      font-variant-numeric: tabular-nums;
+    }
+    .sprite-tag {
+      font-size: var(--label-size);
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: var(--rounded-full);
+      border: 1.5px solid var(--secondary);
+      color: var(--secondary);
+      background: var(--surface-container-low);
+    }
+    .sprite-tag.new-badge {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .sprite-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .sprite-highlight {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+    }
+    .sprite-scenario {
       background: var(--surface-container);
       border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.92rem;
+      color: var(--on-surface);
+    }
+    .sprite-scenario strong { color: var(--secondary); }
+
+    .prompt-box {
+      background: var(--background);
+      border: 2px dashed var(--outline-variant);
+      border-radius: var(--rounded);
       padding: var(--space-md);
-      font-size: var(--body-size);
-      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .prompt-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .prompt-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.55;
       color: var(--on-surface);
       font-weight: 500;
     }
-    .prompt-prefix {
-      font-weight: 800;
-      color: var(--primary);
-    }
-
-    .prompt-tip {
-      font-size: var(--label-size);
-      color: var(--on-surface-variant);
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-xs);
-    }
-
-    .prompt-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: var(--space-sm);
-      flex-wrap: wrap;
-    }
-
     .copy-btn {
       width: 100%;
       justify-content: center;
     }
-    .copy-btn.is-copied {
+    .copy-btn.copied {
       background: var(--positive);
+      color: var(--on-positive);
+      box-shadow: var(--shadow-mint);
+    }
+
+    /* Interactive Mini-Labs inside Sprites Section */
+    .labs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .fraction-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+    .fraction-row {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .fraction-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .fraction-strip {
+      display: grid;
+      gap: 4px;
+      height: 44px;
+      background: var(--surface-container-low);
+      padding: 4px;
+      border-radius: var(--rounded-full);
+    }
+    .fraction-piece {
+      border: none;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-high);
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  transform var(--dur-micro) var(--ease-bounce);
+      min-height: 36px;
+    }
+    .fraction-piece:hover { transform: scale(1.03); }
+    .fraction-piece.filled-pink { background: var(--primary); }
+    .fraction-piece.filled-sky { background: var(--tertiary); }
+
+    .dialogue-box {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+    .chat-bubble {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: 0.92rem;
+      max-width: 92%;
+    }
+    .chat-bubble.student {
+      align-self: flex-end;
+      background: var(--primary);
       color: var(--on-primary);
+    }
+    .chat-bubble.ai {
+      align-self: flex-start;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
       box-shadow: var(--shadow-sky);
     }
 
-    .empty-state-card {
+    /* Section 2: AI Literacy & Safety */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .safety-card {
       background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-grape);
-      padding: var(--space-xl);
-      text-align: left;
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-tangerine);
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       gap: var(--space-md);
     }
+    .safety-card:nth-child(2) { box-shadow: var(--shadow-pink); }
+    .safety-card:nth-child(3) { box-shadow: var(--shadow-mint); }
+    .quote-callout {
+      background: var(--sun-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      font-weight: 700;
+      color: var(--on-surface);
+      border-left: 5px solid var(--tangerine);
+    }
+    .warning-callout {
+      background: var(--error-container);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 700;
+      color: var(--error);
+    }
+    .privacy-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .ban-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--rounded-full);
+      background: var(--error-container);
+      color: var(--error);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
 
-    /* Inline toast feedback */
-    .copy-toast {
+    /* Safety Quiz */
+    .quiz-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-grape);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .quiz-questions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .quiz-item {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .quiz-opt {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: 2px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: left;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  background-color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out);
+    }
+    .quiz-opt:hover { transform: var(--pop-scale); border-color: var(--secondary); }
+    .quiz-opt.is-correct {
+      background: var(--mint-container);
+      border-color: var(--positive);
+      color: var(--positive);
+    }
+    .quiz-opt.is-wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      color: var(--error);
+    }
+    .quiz-feedback {
+      font-size: 0.88rem;
+      font-weight: 700;
+      min-height: 1.4em;
+      color: var(--on-surface-variant);
+    }
+
+    /* Section 3: Domain Knowledge Structure & Star Map */
+    .star-lab {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sky);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .constellation-box {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .star-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .four-learnings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .four-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-grape);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .four-card:nth-child(2) { box-shadow: var(--shadow-sky); }
+    .four-card:nth-child(3) { box-shadow: var(--shadow-tangerine); }
+    .four-card:nth-child(4) { box-shadow: var(--shadow-pink); }
+
+    /* Section 4: Teacher Zone */
+    .teacher-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-grape);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .path-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .path-step {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      font-weight: 700;
+    }
+    .step-badge {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: var(--rounded-full);
+      background: var(--secondary);
+      color: var(--on-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+    .icon-accent { color: var(--primary); }
+    .icon-muted { color: var(--secondary); }
+    .text-positive { color: var(--positive); }
+    .text-error { color: var(--error); }
+    .text-primary { color: var(--primary); }
+    .text-secondary { color: var(--secondary); }
+    .text-muted { color: var(--on-surface-variant); }
+    .callout-sky {
+      background: var(--sky-container);
+      border-color: var(--tertiary);
+    }
+    .callout-mint {
+      background: var(--mint-container);
+      border-color: var(--positive);
+      font-size: 0.9rem;
+    }
+    .designer-preset-wrap {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .designer-preset-box {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      font-size: 0.9rem;
+    }
+
+    .segmented-track {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      background: var(--surface-container-high);
+      padding: 6px;
+      border-radius: var(--rounded-full);
+      width: fit-content;
+    }
+    .seg-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: none;
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  color var(--dur-short) var(--ease-out),
+                  transform var(--dur-short) var(--ease-bounce);
+    }
+    .seg-btn:hover { transform: var(--pop-scale); }
+    .seg-btn.active {
+      background: var(--surface-container-low);
+      color: var(--primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .report-detail-card {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .data-pill {
+      padding: 6px 14px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: var(--shadow-sky);
+    }
+
+    /* Two Teacher Prep Superpowers */
+    .prep-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .prep-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-pink);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .prep-card.magic { box-shadow: var(--shadow-sky); }
+
+    .workflow-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .workflow-list li {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      background: var(--surface-container);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: 0.94rem;
+    }
+    .wf-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      border-radius: var(--rounded-full);
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 900;
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+    .wf-num.sky { background: var(--secondary); }
+
+    .a4-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+    .a4-page-btn {
+      min-height: 62px;
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+      border: 2px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      text-align: center;
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  background-color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out);
+    }
+    .a4-page-btn:hover { transform: var(--pop-scale); border-color: var(--secondary); }
+    .a4-page-btn.active {
+      background: var(--sky-container);
+      border-color: var(--secondary);
+      color: var(--on-surface);
+      box-shadow: var(--shadow-sky);
+    }
+    .a4-preview-box {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+
+    /* Teacher Checklist */
+    .checklist-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-mint);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .check-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .check-label input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--positive);
+      cursor: pointer;
+    }
+
+    /* Empty state */
+    .empty-state {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-xl);
+      text-align: center;
+      box-shadow: var(--shadow-grape);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .empty-state.visible { display: flex; }
+
+    /* Toast feedback */
+    .toast-pill {
       position: fixed;
       bottom: var(--space-lg);
       right: var(--space-lg);
-      z-index: 50;
       background: var(--on-surface);
-      color: var(--on-primary);
-      border-radius: var(--rounded-full);
+      color: var(--surface-container-low);
       padding: var(--space-sm) var(--space-lg);
-      box-shadow: var(--shadow-pink-deep);
+      border-radius: var(--rounded-full);
       font-weight: 700;
-      font-size: var(--label-size);
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
+      font-size: 0.92rem;
+      box-shadow: var(--shadow-pink-deep);
       opacity: 0;
       transform: translateY(16px);
       pointer-events: none;
       transition: opacity var(--dur-short) var(--ease-out),
                   transform var(--dur-short) var(--ease-bounce);
-    }
-    .copy-toast.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Footer */
-    .guide-footer {
-      background: var(--surface-container-low);
-      border-radius: var(--rounded-lg);
-      box-shadow: var(--shadow-grape);
-      padding: var(--space-xl);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      z-index: 50;
+      display: inline-flex;
       align-items: center;
-      gap: var(--space-md);
+      gap: var(--space-sm);
     }
-
-    /* SVG CSS token classes (no inline hex) */
-    .svg-primary { fill: var(--primary); }
-    .svg-secondary { fill: var(--secondary); }
-    .svg-tertiary { fill: var(--tertiary); }
-    .svg-container { fill: var(--primary-container); }
-    .svg-ink { fill: var(--on-surface); }
-    .svg-white { fill: var(--surface-container-low); }
-    .svg-tint-pink { fill: var(--tint-pink); }
-    .svg-tint-sky { fill: var(--tint-sky); }
-    .svg-tint-grape { fill: var(--tint-grape); }
-    .svg-tint-amber { fill: var(--tint-amber); }
-    .svg-tint-green { fill: var(--tint-green); }
-    .svg-stroke-ink { stroke: var(--on-surface); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-    .svg-stroke-primary { stroke: var(--primary); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-    .svg-stroke-secondary { stroke: var(--secondary); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-    .svg-stroke-tertiary { stroke: var(--tertiary); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-    .svg-stroke-context { stroke: var(--data-context); stroke-width: 3; stroke-dasharray: 6 6; stroke-linecap: round; fill: none; }
-
-    /* Container queries */
-    @container (min-width: 380px) {
-      .prompt-card-footer { flex-wrap: nowrap; }
-    }
-
-    /* Scroll reveal */
-    .reveal-section {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity var(--dur-long) var(--ease-out),
-                  transform var(--dur-long) var(--ease-out);
-    }
-    .reveal-section.is-visible {
+    .toast-pill.show {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Responsive breakpoints */
-    @media (max-width: 960px) {
-      .hero-panel,
-      .spirit-layout,
-      .constellation-box,
-      .scaffold-stage,
-      .rise-builder {
-        grid-template-columns: 1fr;
-      }
+    /* Scroll reveal animation */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity var(--dur-long) var(--ease-out),
+                  transform var(--dur-long) var(--ease-bounce);
+    }
+    .reveal-item.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
 
+    /* Container queries for card adaptation */
+    .card-wrapper { container-type: inline-size; }
+    @container (max-width: 360px) {
+      .sprite-top { flex-direction: column; }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .hero-panel { grid-template-columns: 1fr; }
+      .star-lab { grid-template-columns: 1fr; }
+      .report-detail-card { grid-template-columns: 1fr; }
+      .toolbar-panel { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
       .page-grid {
-        padding: var(--space-md) var(--space-sm) var(--space-2xl);
+        padding: var(--space-md);
         gap: var(--space-xl);
       }
-      .hero-panel,
-      .spirit-detail-card,
-      .constellation-box,
-      .scaffold-sim,
-      .rise-builder,
-      .vault-toolbar {
-        padding: var(--space-lg) var(--space-md);
+      .hero-panel, .quiz-panel, .star-lab, .teacher-panel, .prep-card {
+        padding: var(--space-lg);
       }
-      .hero-metrics {
-        grid-template-columns: 1fr;
-      }
-      .scaffold-track {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-      .copy-toast {
-        left: var(--space-md);
-        right: var(--space-md);
-        justify-content: center;
-      }
+      .hero-stats { grid-template-columns: 1fr; }
+      .a4-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .quick-nav { border-radius: var(--rounded); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1088,1695 +1244,1361 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-      .reveal-section {
-        opacity: 1;
-        transform: none;
-      }
     }
   </style>
 </head>
 <body>
-  <main class="page-grid">
+  <div class="page-grid">
+    <!-- Top Smooth Navigation -->
+    <nav class="quick-nav" aria-label="快速導覽">
+      <div class="brand-mark">
+        <span class="brand-dot" aria-hidden="true">e度</span>
+        <span>AI 學習夥伴操作指南</span>
+      </div>
+      <div class="nav-pills">
+        <a class="nav-link" href="#spirits">
+          <i data-lucide="sparkles" width="16" height="16"></i>
+          九位精靈專區
+        </a>
+        <a class="nav-link" href="#literacy">
+          <i data-lucide="shield-check" width="16" height="16"></i>
+          AI 素養守則
+        </a>
+        <a class="nav-link" href="#domain-map">
+          <i data-lucide="network" width="16" height="16"></i>
+          星空知識結構
+        </a>
+        <a class="nav-link" href="#teacher-zone">
+          <i data-lucide="graduation-cap" width="16" height="16"></i>
+          教師專屬專區
+        </a>
+      </div>
+    </nav>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Header -->
     <header class="hero-panel">
-      <div>
-        <span class="kicker">
-          <i data-lucide="sparkles" aria-hidden="true" width="16" height="16"></i>
-          國小師生專屬互動指南 × 提示詞練習寶庫
+      <div class="hero-copy">
+        <span class="kicker-pill">
+          <i data-lucide="rocket" width="16" height="16"></i>
+          教育部因材網生成式 AI 數位學習夥伴
         </span>
-        <h1 class="display">認識因材網 <em>e度</em>：會提問的數位學習夥伴</h1>
-        <p>
-          e度不是直接給答案的解答機器，而是常駐在因材網頁面上的 AI 學習神隊友。它運用<strong>蘇格拉底提問法</strong>與<strong>動態評量</strong>，一步步替國小同學搭建學習鷹架，陪你把「不會」變成「我想到了！」。
+        <h1 class="display">認識你的神隊友！<em>e度</em> AI 學習夥伴全攻略</h1>
+        <p class="prose-lead">
+          不直接給答案抄作業，而是用蘇格拉底提問陪你思考、用互動工具把抽象觀念變好玩！本指南專為國小師生打造，收錄九位通用型精靈提示詞、小學生必修 AI 安全守則、星空圖知識節點與教師備課魔法工具。
         </p>
-        <div class="nav-pills" role="navigation" aria-label="快速跳轉章節">
-          <a href="#partners-section" class="btn btn-primary">
-            <i data-lucide="compass" aria-hidden="true" width="18" height="18"></i>
-            認識兩大學習夥伴
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#spirits">
+            <i data-lucide="copy" width="18" height="18"></i>
+            馬上複製 9 位精靈提示詞
           </a>
-          <a href="#pedagogy-section" class="btn btn-secondary">
-            <i data-lucide="layers" aria-hidden="true" width="18" height="18"></i>
-            體驗鷹架對話
+          <a class="btn btn-secondary" href="#teacher-zone">
+            <i data-lucide="compass" width="18" height="18"></i>
+            前往教師報表與備課工具
           </a>
-          <a href="#rise-section" class="btn btn-soft">
-            <i data-lucide="wand-2" aria-hidden="true" width="18" height="18"></i>
-            RISE 提問心法
-          </a>
-          <a href="#vault-section" class="btn btn-soft">
-            <i data-lucide="copy" aria-hidden="true" width="18" height="18"></i>
-            35 題提示詞寶庫
-          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-chip sky">
+            <span class="stat-num">9 位</span>
+            <span class="stat-label">通用型學習精靈</span>
+          </div>
+          <div class="stat-chip sun">
+            <span class="stat-num">3 守則</span>
+            <span class="stat-label">小學生 AI 安全素養</span>
+          </div>
+          <div class="stat-chip grape">
+            <span class="stat-num">8 頁 A4</span>
+            <span class="stat-label">講義魔法精靈一鍵生成</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-metrics" aria-label="學習夥伴重點數字">
-        <div class="metric-card tint-pink">
-          <span class="metric-num">7</span>
-          <span class="metric-label">通用型精靈模式</span>
-          <span class="muted">邏輯、探究、閱讀、寫作、繪圖、自主、樂學</span>
-        </div>
-        <div class="metric-card tint-sky">
-          <span class="metric-num">4</span>
-          <span class="metric-label">學科領域夥伴</span>
-          <span class="metric-label muted">國・英・數・自 串聯星空圖知識節點</span>
-        </div>
-        <div class="metric-card tint-grape">
-          <span class="metric-num">35</span>
-          <span class="metric-label">國小情境提示詞</span>
-          <span class="muted">含「我是〇年級學生」起手式，一鍵複製</span>
+      <div class="hero-art">
+        <!-- Custom Colorful Die-Cut Educational SVG Illustration -->
+        <svg viewBox="0 0 380 260" width="360" height="246" aria-hidden="true">
+          <!-- Floating pastel shapes -->
+          <circle cx="72" cy="60" r="36" fill="var(--sky-container)" />
+          <circle cx="312" cy="70" r="32" fill="var(--sun-container)" />
+          <circle cx="290" cy="204" r="38" fill="var(--mint-container)" />
+          <circle cx="96" cy="196" r="30" fill="var(--grape-container)" />
+          <!-- Star sparkles -->
+          <path d="M56 122 L62 110 L68 122 L80 128 L68 134 L62 146 L56 134 L44 128 Z" fill="var(--sunflower)" />
+          <path d="M326 132 L331 122 L336 132 L346 137 L336 142 L331 152 L326 142 L316 137 Z" fill="var(--primary)" />
+          <!-- Main Mascot Body (e度小精靈) -->
+          <rect x="120" y="64" width="140" height="128" rx="46" fill="var(--primary)" />
+          <rect x="134" y="84" width="112" height="72" rx="28" fill="var(--surface-container-low)" />
+          <!-- Antenna / Idea Bulb -->
+          <rect x="186" y="34" width="8" height="34" rx="4" fill="var(--secondary)" />
+          <circle cx="190" cy="28" r="14" fill="var(--sunflower)" />
+          <circle cx="190" cy="28" r="6" fill="var(--surface-container-low)" />
+          <!-- Happy Eyes & Smile -->
+          <circle cx="166" cy="116" r="9" fill="var(--on-surface)" />
+          <circle cx="214" cy="116" r="9" fill="var(--on-surface)" />
+          <circle cx="163" cy="113" r="3" fill="var(--surface-container-low)" />
+          <circle cx="211" cy="113" r="3" fill="var(--surface-container-low)" />
+          <path d="M174 134 Q190 148 206 134" fill="none" stroke="var(--primary)" stroke-width="5" stroke-linecap="round" />
+          <!-- Cheek blushes -->
+          <circle cx="150" cy="128" r="7" fill="var(--primary-container)" />
+          <circle cx="230" cy="128" r="7" fill="var(--primary-container)" />
+          <!-- Mascot Arms & Book -->
+          <path d="M120 132 Q94 122 96 148" fill="none" stroke="var(--secondary)" stroke-width="14" stroke-linecap="round" />
+          <path d="M260 132 Q288 122 286 148" fill="none" stroke="var(--secondary)" stroke-width="14" stroke-linecap="round" />
+          <!-- Open Book Badge at bottom -->
+          <rect x="138" y="182" width="104" height="52" rx="14" fill="var(--tertiary)" />
+          <rect x="148" y="190" width="40" height="36" rx="6" fill="var(--surface-container-low)" />
+          <rect x="192" y="190" width="40" height="36" rx="6" fill="var(--surface-container-low)" />
+          <line x1="156" y1="202" x2="180" y2="202" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round" />
+          <line x1="156" y1="214" x2="176" y2="214" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" />
+          <line x1="200" y1="202" x2="224" y2="202" stroke="var(--tertiary)" stroke-width="4" stroke-linecap="round" />
+          <line x1="200" y1="214" x2="220" y2="214" stroke="var(--tangerine)" stroke-width="4" stroke-linecap="round" />
+        </svg>
+
+        <!-- Role Focus Switcher -->
+        <div class="role-spotlight" role="group" aria-label="切換閱讀聚焦模式">
+          <button type="button" class="role-btn active" onclick="setRoleFocus('all', this)">全部導覽</button>
+          <button type="button" class="role-btn" onclick="setRoleFocus('student', this)">我是小學生</button>
+          <button type="button" class="role-btn" onclick="setRoleFocus('teacher', this)">我是老師</button>
         </div>
       </div>
     </header>
 
-    <!-- SECTION 1: TWO-TRACK ARCHITECTURE -->
-    <section id="partners-section" class="reveal-section">
-      <div class="section-head">
-        <span class="kicker">第一步：找對神隊友</span>
-        <h2>雙軌架構：<em>通用型</em>七大精靈 vs. <em>學科領域</em>夥伴</h2>
-        <p>
-          遇到課本作業、作文靈感或生活好奇時，可以找「通用型學習夥伴」的七位精靈；在做完診斷測驗、想針對單元補弱或挑戰進階時，就交給「學科領域學習夥伴」。點選下方精靈角色卡，看看每位夥伴的獨特個性！
-        </p>
-      </div>
-
-      <div class="spirit-layout">
-        <div class="spirit-selector-list" id="spirit-selector-list" role="listbox" aria-label="選擇一位通用型學習精靈">
-          <!-- Populated by JS -->
-        </div>
-
-        <div class="spirit-detail-card" id="spirit-detail-card" aria-live="polite">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-
-      <!-- SUBJECT DOMAIN + STARRY SKY KNOWLEDGE NODES -->
-      <div class="constellation-box">
-        <div class="constellation-controls">
-          <div>
-            <span class="badge badge-sky">學科領域學習夥伴</span>
-            <h3 style="margin-top: var(--space-sm);">因材網「星空圖知識節點」與智慧適性導航</h3>
-            <p class="muted">
-              學科領域學習夥伴（國、英、數、自）會結合你的診斷測驗結果與因材網知識結構節點，自動偵測你缺少的<strong>先備知識</strong>來向下補救，或在你精熟後推薦<strong>個人化進階挑戰</strong>！
-            </p>
-          </div>
-
-          <div class="control-group">
-            <span class="control-label">1. 選擇學科領域夥伴</span>
-            <div class="pill-row" id="subject-pills">
-              <button type="button" class="chip is-active" onclick="selectSubject('math')" data-subj="math" aria-pressed="true">數學</button>
-              <button type="button" class="chip" onclick="selectSubject('chinese')" data-subj="chinese" aria-pressed="false">國語</button>
-              <button type="button" class="chip" onclick="selectSubject('english')" data-subj="english" aria-pressed="false">英語</button>
-              <button type="button" class="chip" onclick="selectSubject('science')" data-subj="science" aria-pressed="false">自然</button>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <span class="control-label">2. 模擬智慧適性診斷結果</span>
-            <div class="pill-row" id="diag-pills">
-              <button type="button" class="chip chip-secondary is-active" onclick="selectDiagMode('remedy')" data-diag="remedy" aria-pressed="true">發現學習弱點 → 向下補救先備概念</button>
-              <button type="button" class="chip chip-secondary" onclick="selectDiagMode('advance')" data-diag="advance" aria-pressed="false">節點診斷通過 → 向上挑戰進階節點</button>
-            </div>
-          </div>
-
-          <div class="node-status-cards" id="node-status-cards">
-            <!-- Populated by JS -->
-          </div>
-        </div>
-
-        <div class="constellation-svg-wrap">
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap;">
-            <strong id="constellation-title">數學知識星空圖路徑</strong>
-            <span class="badge" id="constellation-badge">先備知識自動偵測中</span>
-          </div>
-          <svg id="constellation-svg" viewBox="0 0 420 230" width="100%" height="230" aria-hidden="true">
-            <!-- Dynamic SVG paths and nodes updated cleanly via JS -->
-            <line id="edge-lower" x1="85" y1="175" x2="210" y2="115" class="svg-stroke-primary"></line>
-            <line id="edge-upper" x1="210" y1="115" x2="335" y2="55" class="svg-stroke-context"></line>
-
-            <!-- Star sparkles -->
-            <circle cx="52" cy="48" r="3" class="svg-container"></circle>
-            <circle cx="155" cy="36" r="2.5" class="svg-secondary"></circle>
-            <circle cx="372" cy="165" r="3.5" class="svg-tertiary"></circle>
-            <circle cx="290" cy="192" r="2" class="svg-primary"></circle>
-
-            <!-- Lower node (Prerequisite) -->
-            <g id="svg-node-prev">
-              <circle cx="85" cy="175" r="28" class="svg-tint-amber"></circle>
-              <circle cx="85" cy="175" r="18" class="svg-primary"></circle>
-              <text x="85" y="180" text-anchor="middle" font-size="13" font-weight="900" class="svg-white">先備</text>
-              <text id="svg-label-prev" x="85" y="218" text-anchor="middle" font-size="12" font-weight="700" class="svg-ink">基礎概念</text>
-            </g>
-
-            <!-- Center node (Current) -->
-            <g id="svg-node-curr">
-              <circle cx="210" cy="115" r="32" class="svg-tint-sky"></circle>
-              <circle cx="210" cy="115" r="21" class="svg-secondary"></circle>
-              <text x="210" y="120" text-anchor="middle" font-size="13" font-weight="900" class="svg-white">目前</text>
-              <text id="svg-label-curr" x="210" y="162" text-anchor="middle" font-size="12" font-weight="700" class="svg-ink">目標節點</text>
-            </g>
-
-            <!-- Upper node (Advanced) -->
-            <g id="svg-node-next">
-              <circle cx="335" cy="55" r="28" class="svg-tint-green"></circle>
-              <circle cx="335" cy="55" r="18" class="svg-tertiary"></circle>
-              <text x="335" y="60" text-anchor="middle" font-size="13" font-weight="900" class="svg-ink">進階</text>
-              <text id="svg-label-next" x="335" y="98" text-anchor="middle" font-size="12" font-weight="700" class="svg-ink">延伸挑戰</text>
-            </g>
-          </svg>
-          <p class="muted" id="constellation-caption" style="font-size: var(--label-size);"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: PEDAGOGY & SCAFFOLDING SIMULATOR -->
-    <section id="pedagogy-section" class="reveal-section">
-      <div class="section-head">
-        <span class="kicker">第二步：懂教學的 AI</span>
-        <h2>為什麼 e度不直接給答案？<em>四大教學超能力</em></h2>
-        <p>
-          如果 AI 一秒把作業寫完，大腦就沒有練習思考的機會。e度在設計時融入教育心理學與教學法，讓孩子在「自己想通」的過程中獲得滿滿成就感！
-        </p>
-      </div>
-
-      <div class="pedagogy-grid">
-        <article class="pedagogy-card">
-          <div class="pedagogy-icon-pill">
-            <i data-lucide="help-circle" aria-hidden="true" width="24" height="24"></i>
-          </div>
-          <h3>蘇格拉底提問法</h3>
-          <p class="muted">不直接把答案塞給你，而是丟出一個關鍵小問題，引導你說出自己的想法與觀察線索。</p>
-        </article>
-
-        <article class="pedagogy-card">
-          <div class="pedagogy-icon-pill">
-            <i data-lucide="sliders-horizontal" aria-hidden="true" width="24" height="24"></i>
-          </div>
-          <h3>動態評量（暗示→明示→詳解）</h3>
-          <p class="muted">先給一點小暗示；如果還是卡住，再給予明確線索與步驟拆解，最後才陪你核對完整做法。</p>
-        </article>
-
-        <article class="pedagogy-card">
-          <div class="pedagogy-icon-pill">
-            <i data-lucide="stairs" aria-hidden="true" width="24" height="24"></i>
-          </div>
-          <h3>建立學習鷹架</h3>
-          <p class="muted">像蓋房子時搭起的安全階梯，把困難的大題目拆成三、四個小任務，每跨一步都穩穩的。</p>
-        </article>
-
-        <article class="pedagogy-card">
-          <div class="pedagogy-icon-pill">
-            <i data-lucide="heart-handshake" aria-hidden="true" width="24" height="24"></i>
-          </div>
-          <h3>SEL 社會情緒學習</h3>
-          <p class="muted">當學生答錯或緊張時，e度會溫柔接住情緒、讚美努力的過程，幫助孩子建立自信與抗挫力。</p>
-        </article>
-      </div>
-
-      <!-- INTERACTIVE SCAFFOLDING SIMULATOR -->
-      <div class="scaffold-sim">
-        <div class="scaffold-header">
-          <div>
-            <span class="badge badge-grape">互動體驗室</span>
-            <h3 style="margin-top: var(--space-xs);">直擊現場！e度如何用四步驟搭建學習鷹架？</h3>
-          </div>
-          <div class="pill-row" id="scaffold-scenario-pills">
-            <button type="button" class="chip is-active" onclick="selectScaffoldScenario('math')" data-scen="math" aria-pressed="true">情境 A：數學乘法位數</button>
-            <button type="button" class="chip" onclick="selectScaffoldScenario('draw')" data-scen="draw" aria-pressed="false">情境 B：繪圖精靈構思</button>
-            <button type="button" class="chip" onclick="selectScaffoldScenario('write')" data-scen="write" aria-pressed="false">情境 C：寫作「談合作」</button>
-          </div>
-        </div>
-
-        <div class="scaffold-track" id="scaffold-track" role="tablist" aria-label="動態評量四個階段">
-          <!-- Populated by JS -->
-        </div>
-
-        <div class="scaffold-stage" id="scaffold-stage" aria-live="polite">
-          <!-- Populated by JS -->
-        </div>
-
-        <div class="scaffold-actions">
-          <span class="muted" id="scaffold-progress-text" style="font-size: var(--label-size); font-weight: 700;"></span>
-          <div class="pill-row">
-            <button type="button" class="btn btn-soft" id="scaffold-prev-btn" onclick="stepScaffold(-1)">上一步</button>
-            <button type="button" class="btn btn-primary" id="scaffold-next-btn" onclick="stepScaffold(1)">下一步鷹架引導</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: RISE 4 STEPS + INTERACTIVE BUILDER -->
-    <section id="rise-section" class="reveal-section">
-      <div class="section-head">
-        <span class="kicker">第三步：把問題問清楚</span>
-        <h2>小小探索家提問心法：<em>RISE 對話四步驟</em></h2>
-        <p>
-          想讓 e度給出最適合你的引導，就要學會當個會提問的小小探索家！只要記住 <strong>R・I・S・E</strong> 四個口訣，每一次對話都能滿載而歸。
-        </p>
-      </div>
-
-      <div class="rise-grid">
-        <article class="rise-card">
-          <span class="rise-letter">R</span>
-          <h3>Role 設定角色</h3>
-          <p class="muted">先想好要呼叫哪位精靈，或請 e度扮演自然偵探、數學小教練或寫作點子王。</p>
-          <span class="badge badge-grape">例：請當我的自然觀察教練</span>
-        </article>
-
-        <article class="rise-card">
-          <span class="rise-letter">I</span>
-          <h3>Information 給足資訊</h3>
-          <p class="muted">一定要說出「我是幾年級學生」、科目單元、課本內容，以及自己卡關的地方。</p>
-          <span class="badge badge-sky">例：我是五年級學生，觀察大花咸豐草…</span>
-        </article>
-
-        <article class="rise-card">
-          <span class="rise-letter">S</span>
-          <h3>Step-by-step 逐步追問</h3>
-          <p class="muted">提醒 e度先不要直接給答案或代筆，請它用小問題一步一步帶你思考與檢查。</p>
-          <span class="badge">例：請一次問我一個問題引導我</span>
-        </article>
-
-        <article class="rise-card">
-          <span class="rise-letter">E</span>
-          <h3>End 禮貌結束話題</h3>
-          <p class="muted">搞懂之後記得說聲謝謝，並試著用「自己的話」把今天學到的重點講一遍！</p>
-          <span class="badge badge-green">例：謝謝e度！我學會先對齊十位再算</span>
-        </article>
-      </div>
-
-      <!-- INTERACTIVE RISE PROMPT BUILDER -->
-      <div class="rise-builder">
-        <div>
-          <span class="badge">動手組裝你的第一句提問</span>
-          <h3 style="margin-top: var(--space-sm);">RISE 提示詞組裝實驗室</h3>
-          <p class="muted" style="margin-bottom: var(--space-md);">
-            選好年級、精靈與課堂任務，系統會自動幫你組出符合「我是〇年級學生，……」格式的專屬提問句！
-          </p>
-
-          <div class="form-grid">
-            <div class="field">
-              <label for="builder-grade">1. 你的年級 (Information)</label>
-              <select id="builder-grade" onchange="updateRiseBuilder()">
-                <option value="一年級">一年級學生</option>
-                <option value="二年級">二年級學生</option>
-                <option value="三年級" selected>三年級學生</option>
-                <option value="四年級">四年級學生</option>
-                <option value="五年級">五年級學生</option>
-                <option value="六年級">六年級學生</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="builder-spirit">2. 呼叫哪位精靈 (Role)</label>
-              <select id="builder-spirit" onchange="updateRiseBuilder()">
-                <option value="一般模式">一般模式（邏輯與各科）</option>
-                <option value="自然探究精靈">自然探究精靈（科學觀察）</option>
-                <option value="文思精靈">文思精靈（閱讀與思辨）</option>
-                <option value="寫作精靈">寫作精靈（靈感不代筆）</option>
-                <option value="繪圖精靈">繪圖精靈（構圖引導）</option>
-                <option value="自主學習精靈">自主學習精靈（計畫策略）</option>
-                <option value="樂學精靈">樂學精靈（步調放慢支持）</option>
-              </select>
-            </div>
-
-            <div class="field field-full">
-              <label for="builder-topic">3. 你正在煩惱的課堂主題或作業 (Information)</label>
-              <input id="builder-topic" type="text" value="在算三位數除以一位數時常常忘記補 0" oninput="updateRiseBuilder()" placeholder="例如：自然課的電路連接、作文開頭想不出來">
-            </div>
-
-            <div class="field field-full">
-              <label for="builder-style">4. 希望 e度怎麼一步步帶你 (Step-by-step)</label>
-              <select id="builder-style" onchange="updateRiseBuilder()">
-                <option value="請先不要直接告訴我答案，用生活中的例子一步一步考考我！">不要直接給答案，用生活例子一步步考我</option>
-                <option value="請一次只問我一個小問題，引導我自己觀察並說出原因！">一次問一個小問題，引導我自己說出原因</option>
-                <option value="請先給我三個方向參考，讓我自己挑好再用自己的話寫出來！">給我方向提示就好，我自己用自己的話寫</option>
-                <option value="請放慢步調陪我從最簡單的一小步開始，幫我找回信心！">步調放慢一點，從最簡單的一小步陪我練</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="pill-row" style="margin-top: var(--space-md);">
-            <span class="control-label" style="width: 100%;">快速套用靈感標籤：</span>
-            <button type="button" class="chip" onclick="applyBuilderPreset('三年級','一般模式','算分數大小比較時容易搞混')">分數比較大小</button>
-            <button type="button" class="chip" onclick="applyBuilderPreset('五年級','自然探究精靈','想知道為什麼月亮每天形狀都不一樣')">月亮盈虧秘密</button>
-            <button type="button" class="chip" onclick="applyBuilderPreset('四年級','寫作精靈','想寫一篇「班上的大掃除」卻不知道怎麼開頭')">大掃除作文開頭</button>
-            <button type="button" class="chip" onclick="applyBuilderPreset('二年級','樂學精靈','背英語星期一到星期日的單字常常背錯')">英語單字放鬆練</button>
-          </div>
-        </div>
-
-        <div class="rise-preview-panel">
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap;">
-            <strong>你的專屬 RISE 提示詞預覽</strong>
-            <span class="badge badge-green">已套用年級起手式</span>
-          </div>
-
-          <div class="prompt-output-box" id="builder-output" aria-live="polite"></div>
-
-          <div class="checklist-row" aria-label="RISE 檢核徽章">
-            <span class="badge badge-grape">R 角色明確</span>
-            <span class="badge badge-sky">I 含年級與情境</span>
-            <span class="badge">S 要求逐步引導</span>
-            <span class="badge badge-amber">E 學會後記得說謝謝</span>
-          </div>
-
-          <button type="button" class="btn btn-primary" id="builder-copy-btn" onclick="copyBuilderPrompt()">
-            <i data-lucide="copy" aria-hidden="true" width="18" height="18"></i>
-            一鍵複製自訂提示詞
-          </button>
-          <p class="muted" style="font-size: var(--label-size);">
-            小提醒（Step E）：跟 e度聊完學會之後，別忘了回傳一句：「謝謝 e度！我現在知道下次要怎麼自己檢查了！」
+    <!-- SECTION 1: 9 Sprites Showcase -->
+    <section id="spirits" class="section-block" data-audience="student">
+      <div class="section-header">
+        <div class="section-header-copy">
+          <span class="kicker-pill sky">
+            <i data-lucide="wand-2" width="15" height="15"></i>
+            單元一｜九位通用型學習夥伴精靈
+          </span>
+          <h2 class="section-title">認識 <em>9 位</em> 精靈神隊友，一鍵複製開聊！</h2>
+          <p class="prose-lead">
+            在因材網開啟通用型學習夥伴後，挑一位最適合今天任務的精靈吧！每張卡片都準備好小學生口吻的「專屬提問魔法句」，點一下按鈕即可複製貼上使用。
           </p>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION 4: 35-PROMPT VAULT -->
-    <section id="vault-section" class="reveal-section">
-      <div class="section-head">
-        <span class="kicker">第四步：馬上開口試試看</span>
-        <h2>小學生專屬提示詞寶庫：<em>7 大精靈 × 35 個生活情境</em></h2>
-        <p>
-          不知道怎麼對 AI 開口嗎？這裡為國小一到六年級準備了 35 個貼近課堂與日常作業的魔法提示詞，每一句都幫你寫好了「我是〇年級學生，……」。挑一張卡片按下「一鍵複製」，就能直接貼進因材網 e度練習對話！
-        </p>
+      <!-- Progress Tracker -->
+      <div class="progress-banner">
+        <div style="display:flex;align-items:center;gap:var(--space-sm);">
+          <i data-lucide="award" width="22" height="22" class="icon-accent"></i>
+          <span id="sprite-progress-text" style="font-weight:900;">已收集提示詞：0 / 9 位精靈</span>
+        </div>
+        <div class="progress-track" aria-label="已複製提示詞進度">
+          <div id="sprite-progress-bar" class="progress-fill"></div>
+        </div>
+        <button type="button" class="btn btn-outline" onclick="resetSpriteProgress(this)">
+          <i data-lucide="rotate-ccw" width="16" height="16"></i>
+          清除收集紀錄
+        </button>
       </div>
 
-      <div class="vault-toolbar">
-        <div class="vault-top-row">
-          <div class="vault-progress-wrap">
-            <div>
-              <span class="control-label">我的練習貼紙收集進度</span>
-              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-top: var(--space-xs);">
-                <div class="progress-track" aria-hidden="true">
-                  <div class="progress-fill" id="vault-progress-fill"></div>
-                </div>
-                <strong id="vault-progress-text" style="font-variant-numeric: tabular-nums;">0 / 35 題</strong>
+      <!-- Filter & Search Toolbar -->
+      <div class="toolbar-panel">
+        <div class="filter-group" role="group" aria-label="依學習情境篩選精靈">
+          <button type="button" class="filter-pill active" onclick="filterSprites('all', this)">全部 9 位</button>
+          <button type="button" class="filter-pill" onclick="filterSprites('math', this)">數理與卡點突破</button>
+          <button type="button" class="filter-pill" onclick="filterSprites('reading', this)">閱讀與寫作表達</button>
+          <button type="button" class="filter-pill" onclick="filterSprites('explore', this)">自然探究與繪圖</button>
+          <button type="button" class="filter-pill" onclick="filterSprites('habit', this)">自主學習與鼓勵</button>
+        </div>
+        <div class="search-field">
+          <label class="field-label" for="sprite-search">搜尋精靈名稱或關鍵字</label>
+          <input id="sprite-search" class="pill-input" type="search" placeholder="例如：分數、黑熊、5E、繪圖" oninput="searchSprites(this.value)">
+        </div>
+      </div>
+
+      <!-- Sprites Grid -->
+      <div id="sprites-grid" class="sprites-grid"></div>
+
+      <!-- Empty State -->
+      <div id="sprites-empty" class="empty-state">
+        <i data-lucide="search-x" width="36" height="36" class="icon-muted"></i>
+        <p class="subhead">找不到符合關鍵字的精靈喔！</p>
+        <p style="margin:0;color:var(--on-surface-variant);">試著清除搜尋字詞，或切換回「全部 9 位」看看所有學習夥伴。</p>
+        <button type="button" class="btn btn-primary" onclick="clearSpriteFilters()">顯示全部 9 位精靈</button>
+      </div>
+
+      <!-- Hands-on Interactive Labs for Sprites #8 and #1/#3 -->
+      <div class="labs-grid">
+        <!-- Lab A: Interactive Fraction Tool (Sprite #8 Demo) -->
+        <div class="card tint-sky reveal-item">
+          <span class="kicker-pill sky">
+            <i data-lucide="sliders-horizontal" width="15" height="15"></i>
+            精靈 08 現場體驗｜個人化互動小工具
+          </span>
+          <h3 class="subhead">動手切切看！為什麼 1/2 和 2/4 一樣大？</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.94rem;">
+            點選下方的巧克力方塊，親自比對「切成 2 份拿 1 份」和「切成 4 份拿 2 份」的塗色長度，把難懂的分數變成眼睛看得到的畫面！
+          </p>
+          <div class="fraction-bar-wrap">
+            <div class="fraction-row">
+              <div class="fraction-header">
+                <span>上方巧克力（平分成 2 份）</span>
+                <span id="frac-top-val" class="text-primary">已選 1 / 2</span>
+              </div>
+              <div id="strip-2" class="fraction-strip" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+                <button type="button" class="fraction-piece filled-pink" aria-label="二分之一 第1格" onclick="toggleFrac(this, 'top')"></button>
+                <button type="button" class="fraction-piece" aria-label="二分之一 第2格" onclick="toggleFrac(this, 'top')"></button>
               </div>
             </div>
-            <button type="button" class="btn btn-ghost" id="reset-progress-btn" onclick="handleResetProgress(this)">
-              清除練習紀錄
-            </button>
-          </div>
-
-          <div class="field search-field">
-            <label for="vault-search">搜尋課堂關鍵字或科目</label>
-            <input id="vault-search" type="search" placeholder="例如：咸豐草、乘法、作文、單字" oninput="handleSearchInput(this.value)">
-          </div>
-        </div>
-
-        <div class="control-group">
-          <span class="control-label">切換精靈分頁（7 大模式各 5 題）</span>
-          <div class="pill-row" id="vault-spirit-tabs" role="tablist" aria-label="依學習精靈篩選提示詞">
-            <!-- Populated by JS -->
-          </div>
-        </div>
-
-        <div class="control-group">
-          <span class="control-label">依年級篩選</span>
-          <div class="pill-row" id="vault-grade-tabs">
-            <button type="button" class="chip chip-secondary is-active" onclick="setGradeFilter('all')" data-grade="all" aria-pressed="true">全部年級</button>
-            <button type="button" class="chip chip-secondary" onclick="setGradeFilter('low')" data-grade="low" aria-pressed="false">低年級（一～二年級）</button>
-            <button type="button" class="chip chip-secondary" onclick="setGradeFilter('mid')" data-grade="mid" aria-pressed="false">中年級（三～四年級）</button>
-            <button type="button" class="chip chip-secondary" onclick="setGradeFilter('high')" data-grade="high" aria-pressed="false">高年級（五～六年級）</button>
+            <div class="fraction-row">
+              <div class="fraction-header">
+                <span>下方巧克力（平分成 4 份）</span>
+                <span id="frac-bot-val" class="text-secondary">已選 2 / 4</span>
+              </div>
+              <div id="strip-4" class="fraction-strip" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+                <button type="button" class="fraction-piece filled-sky" aria-label="四分之一 第1格" onclick="toggleFrac(this, 'bot')"></button>
+                <button type="button" class="fraction-piece filled-sky" aria-label="四分之一 第2格" onclick="toggleFrac(this, 'bot')"></button>
+                <button type="button" class="fraction-piece" aria-label="四分之一 第3格" onclick="toggleFrac(this, 'bot')"></button>
+                <button type="button" class="fraction-piece" aria-label="四分之一 第4格" onclick="toggleFrac(this, 'bot')"></button>
+              </div>
+            </div>
+            <div id="frac-compare-msg" class="quote-callout" style="margin-top:var(--space-xs);font-size:0.92rem;">
+              太棒了！1/2 和 2/4 塗起來一樣長，這就是「等值分數」喔！
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="prompt-grid" id="prompt-grid" aria-live="polite">
-        <!-- Populated by JS -->
+        <!-- Lab B: Socratic Scaffolding Dialogue Preview -->
+        <div class="card tint-grape reveal-item">
+          <span class="kicker-pill grape">
+            <i data-lucide="message-circle-question" width="15" height="15"></i>
+            蘇格拉底提問體驗｜不代筆、不給答案
+          </span>
+          <h3 class="subhead">看看 e度 如何一步一步引導你思考？</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.94rem;">
+            點選不同精靈的對話範例，體驗「問對問題」比「直接拿答案」更能練出解題大腦！
+          </p>
+          <div class="segmented-track" role="group" aria-label="選擇對話範例">
+            <button type="button" class="seg-btn active" onclick="showDialogueDemo('general', this)">一般模式（分糖果）</button>
+            <button type="button" class="seg-btn" onclick="showDialogueDemo('writing', this)">寫作精靈（校外教學）</button>
+            <button type="button" class="seg-btn" onclick="showDialogueDemo('nature', this)">自然探究（5E影子）</button>
+          </div>
+          <div id="dialogue-demo-box" class="dialogue-box"></div>
+        </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="guide-footer">
-      <div>
-        <h3>把 e度帶進日常課堂與自主學習</h3>
-        <p class="muted">先自己想一想 → 請 e度搭鷹架給建議 → 最後用「自己的話」講出來或寫下來，你就是最棒的小小探索家！</p>
+    <!-- SECTION 2: AI Literacy & Safety Rules -->
+    <section id="literacy" class="section-block" data-audience="student">
+      <div class="section-header">
+        <div class="section-header-copy">
+          <span class="kicker-pill tangerine">
+            <i data-lucide="shield-alert" width="15" height="15"></i>
+            單元二｜小學生必修：AI 素養與安全守則
+          </span>
+          <h2 class="section-title">聰明用 AI 的 <em>三大黃金守則</em></h2>
+          <p class="prose-lead">
+            和 e度 成為神隊友之前，一定要先學會這三件最重要的事：動腦檢查、保護隱私、保持禮貌與備份習慣！
+          </p>
+        </div>
       </div>
-      <a href="#vault-section" class="btn btn-primary">
-        <i data-lucide="arrow-up" aria-hidden="true" width="18" height="18"></i>
-        回到提示詞寶庫繼續探索
-      </a>
-    </footer>
-  </main>
 
-  <div class="copy-toast" id="copy-toast" role="status" aria-live="polite">
-    <i data-lucide="check-circle-2" aria-hidden="true" width="18" height="18"></i>
-    <span id="copy-toast-text">已複製提示詞！快貼到因材網 e度試試看</span>
+      <div class="safety-grid">
+        <!-- Rule 1 -->
+        <article class="safety-card reveal-item">
+          <div style="display:flex;align-items:center;gap:var(--space-md);">
+            <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="var(--sun-container)" />
+              <circle cx="28" cy="28" r="13" fill="var(--surface-container-low)" stroke="var(--tangerine)" stroke-width="5" />
+              <line x1="38" y1="38" x2="50" y2="50" stroke="var(--tangerine)" stroke-width="6" stroke-linecap="round" />
+              <path d="M23 28 L27 32 L34 24" fill="none" stroke="var(--positive)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div>
+              <span class="kicker-pill sun">守則 01</span>
+              <h3 class="subhead" style="margin-top:4px;">查核批判力</h3>
+            </div>
+          </div>
+          <div class="quote-callout">
+            「e度很厲害，但有時候腦袋也會打結～重要的事情，還是要靠你聰明的腦袋再檢查一遍喔！」
+          </div>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.95rem;">
+            AI 提供的是思考靈感與引導步驟，<strong>絕對不是直接抄作業的機器</strong>。算完數學或寫完文章，記得自己再驗算、查課本確認一次！
+          </p>
+        </article>
+
+        <!-- Rule 2 -->
+        <article class="safety-card reveal-item">
+          <div style="display:flex;align-items:center;gap:var(--space-md);">
+            <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="var(--error-container)" />
+              <path d="M32 14 L48 21 V33 C48 43 40 49 32 52 C24 49 16 43 16 33 V21 Z" fill="var(--primary)" />
+              <rect x="26" y="29" width="12" height="11" rx="3" fill="var(--surface-container-low)" />
+              <path d="M28 29 V25 A4 4 0 0 1 36 25 V29" fill="none" stroke="var(--surface-container-low)" stroke-width="3" />
+            </svg>
+            <div>
+              <span class="kicker-pill">守則 02</span>
+              <h3 class="subhead" style="margin-top:4px;">隱私保護鐵則</h3>
+            </div>
+          </div>
+          <p style="margin:0;color:var(--on-surface);font-weight:700;">
+            跟 AI 對話時，以下四種秘密「絕對不能說出口」：
+          </p>
+          <div class="privacy-chips">
+            <span class="ban-chip"><i data-lucide="x-circle" width="15" height="15"></i>真實姓名</span>
+            <span class="ban-chip"><i data-lucide="x-circle" width="15" height="15"></i>住家地址</span>
+            <span class="ban-chip"><i data-lucide="x-circle" width="15" height="15"></i>電話號碼</span>
+            <span class="ban-chip"><i data-lucide="x-circle" width="15" height="15"></i>帳號密碼</span>
+          </div>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.92rem;">
+            只要說「我是幾年級學生」加上想問的題目就可以囉！
+          </p>
+        </article>
+
+        <!-- Rule 3 -->
+        <article class="safety-card reveal-item">
+          <div style="display:flex;align-items:center;gap:var(--space-md);">
+            <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="var(--mint-container)" />
+              <rect x="16" y="18" width="32" height="24" rx="8" fill="var(--positive)" />
+              <path d="M24 42 L20 50 L32 42" fill="var(--positive)" />
+              <path d="M23 30 L28 35 L41 24" fill="none" stroke="var(--surface-container-low)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div>
+              <span class="kicker-pill mint">守則 03</span>
+              <h3 class="subhead" style="margin-top:4px;">禮儀與操作提醒</h3>
+            </div>
+          </div>
+          <div class="warning-callout">
+            因材網貼心提醒：「切換模式會重新對話喔！」
+          </div>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.95rem;">
+            想換另一位精靈幫忙前，<strong>記得先把剛剛的重點抄寫或複製備份到筆記本</strong>！結束對話時，別忘了跟小夥伴說聲 <strong>Thank you!</strong> 培養數位好禮貌。
+          </p>
+        </article>
+      </div>
+
+      <!-- Interactive AI Safety Quiz -->
+      <div class="quiz-panel reveal-item">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-md);">
+          <div>
+            <span class="kicker-pill grape">互動小闖關</span>
+            <h3 class="subhead" style="margin-top:var(--space-xs);">AI 安全小偵探：這 3 題你都答對了嗎？</h3>
+          </div>
+          <div id="quiz-badge-status" class="kicker-pill sun">
+            <i data-lucide="star" width="16" height="16"></i>
+            目前得分：0 / 3 題
+          </div>
+        </div>
+
+        <div class="quiz-questions">
+          <!-- Q1 -->
+          <div class="quiz-item">
+            <p style="margin:0;font-weight:700;">1. 和繪圖精靈聊天時，他說可以幫我寄禮物到家裡，我應該怎麼做？</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-opt" onclick="answerQuiz(1, false, this)">A. 趕快把我家地址和電話打上去</button>
+              <button type="button" class="quiz-opt" onclick="answerQuiz(1, true, this)">B. 絕對不透露地址與電話，只討論畫圖細節</button>
+            </div>
+            <div id="quiz-fb-1" class="quiz-feedback">選一個答案試試看！</div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="quiz-item">
+            <p style="margin:0;font-weight:700;">2. 我剛用文思精靈讀完文章並整理好重點，現在想切換成寫作精靈，要先做什麼？</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-opt" onclick="answerQuiz(2, true, this)">A. 先把剛才的筆記備份存起來，因為切換模式會重新對話</button>
+              <button type="button" class="quiz-opt" onclick="answerQuiz(2, false, this)">B. 直接切換，對話紀錄會自動合併在一起</button>
+            </div>
+            <div id="quiz-fb-2" class="quiz-feedback">選一個答案試試看！</div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="quiz-item">
+            <p style="margin:0;font-weight:700;">3. 如果發現 e度 算出來的答案好像怪怪的，這時候該怎麼辦？</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-opt" onclick="answerQuiz(3, false, this)">A. AI 不會錯，直接抄到作業本上</button>
+              <button type="button" class="quiz-opt" onclick="answerQuiz(3, true, this)">B. 發揮查核批判力，自己再驗算或對照課本檢查一遍</button>
+            </div>
+            <div id="quiz-fb-3" class="quiz-feedback">選一個答案試試看！</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Subject Domain Knowledge Structure -->
+    <section id="domain-map" class="section-block" data-audience="both">
+      <div class="section-header">
+        <div class="section-header-copy">
+          <span class="kicker-pill grape">
+            <i data-lucide="sparkles" width="15" height="15"></i>
+            單元三｜學科領域知識結構簡介
+          </span>
+          <h2 class="section-title">星空圖知識節點 × <em>適性引導</em> 鷹架</h2>
+          <p class="prose-lead">
+            除了通用型精靈，因材網更結合「學科領域學習夥伴」與知識結構星空圖！從診斷測驗出發，搭配蘇格拉底鷹架與動態評量，精準決定下一步該「向上挑戰」還是「向下補救」。
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Star Map Diagnosis Simulator -->
+      <div class="star-lab reveal-item">
+        <div class="constellation-box">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-sm);">
+            <span class="kicker-pill sky">互動模擬｜星空圖動態評量路徑</span>
+            <span id="star-state-label" class="text-primary" style="font-weight:900;font-size:0.92rem;">目前位置：單元診斷節點</span>
+          </div>
+
+          <!-- Interactive SVG Constellation Graph -->
+          <svg viewBox="0 0 420 220" width="420" height="210" aria-label="因材網星空圖上下位知識節點示意圖">
+            <!-- Connection lines -->
+            <line id="edge-down" x1="210" y1="110" x2="86" y2="165" stroke="var(--outline-variant)" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 6" />
+            <line id="edge-up" x1="210" y1="110" x2="334" y2="55" stroke="var(--outline-variant)" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 6" />
+            <line x1="86" y1="165" x2="64" y2="78" stroke="var(--outline-variant)" stroke-width="2" stroke-dasharray="4 4" />
+            <line x1="334" y1="55" x2="352" y2="154" stroke="var(--outline-variant)" stroke-width="2" stroke-dasharray="4 4" />
+
+            <!-- Decorative background nodes -->
+            <circle cx="64" cy="78" r="12" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="3" />
+            <circle cx="352" cy="154" r="12" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="3" />
+
+            <!-- Lower Prerequisite Node -->
+            <g id="node-down-group">
+              <circle id="node-down" cx="86" cy="165" r="28" fill="var(--surface-container-low)" stroke="var(--tangerine)" stroke-width="4" />
+              <text x="86" y="169" text-anchor="middle" font-size="12" font-weight="900" fill="var(--on-surface)">下位節點</text>
+              <text x="86" y="207" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface-variant)">基礎先備知識</text>
+            </g>
+
+            <!-- Current Target Node -->
+            <g id="node-mid-group">
+              <circle id="node-mid" cx="210" cy="110" r="34" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="5" />
+              <text x="210" y="106" text-anchor="middle" font-size="12" font-weight="900" fill="var(--on-surface)">診斷錯題</text>
+              <text x="210" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface)">引導解題</text>
+            </g>
+
+            <!-- Upper Challenge Node -->
+            <g id="node-up-group">
+              <circle id="node-up" cx="334" cy="55" r="28" fill="var(--surface-container-low)" stroke="var(--positive)" stroke-width="4" />
+              <text x="334" y="59" text-anchor="middle" font-size="12" font-weight="900" fill="var(--on-surface)">上位節點</text>
+              <text x="334" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface-variant)">進階挑戰學習</text>
+            </g>
+          </svg>
+
+          <div class="star-controls">
+            <button type="button" class="btn btn-mint" onclick="simulateStarPath('up')">
+              <i data-lucide="trending-up" width="17" height="17"></i>
+              模擬：類似題答對（向上學習）
+            </button>
+            <button type="button" class="btn btn-primary" onclick="simulateStarPath('down')">
+              <i data-lucide="trending-down" width="17" height="17"></i>
+              模擬：類似題答錯（向下補救）
+            </button>
+            <button type="button" class="btn btn-outline" onclick="simulateStarPath('mid')">
+              回到診斷起點
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-md);">
+          <h3 class="subhead">動態診斷學習五步驟</h3>
+          <div id="star-explanation" class="quote-callout callout-sky">
+            學生完成單元診斷測驗並取得診斷報告後，學科領域夥伴會針對「未精熟的錯題」展開蘇格拉底對話式引導，理解概念後再提供新題目檢核！
+          </div>
+          <ul class="workflow-list">
+            <li><span class="wf-num">1</span><span><strong>診斷測驗：</strong>完成單元測驗，產出星空圖個人診斷報告。</span></li>
+            <li><span class="wf-num">2</span><span><strong>引導解題：</strong>夥伴針對錯題以蘇格拉底鷹架對話講解，不直接洩漏答案。</span></li>
+            <li><span class="wf-num">3</span><span><strong>新題練習：</strong>聽懂觀念後，馬上出類似新題測試精熟度。</span></li>
+            <li><span class="wf-num">4</span><span><strong>向上／向下跳轉：</strong>答對跳出「向上學習」挑戰上位節點；答錯跳出「向下學習」補救先備知識！</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Classroom Four Learnings -->
+      <div class="four-learnings-grid">
+        <div class="four-card reveal-item">
+          <span class="kicker-pill">課堂四學 01</span>
+          <h3 class="subhead">學生自學</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.93rem;">
+            課前或課中運用 e度 進行診斷與自主學習精靈設定目標，先試著靠自己整理疑問。
+          </p>
+        </div>
+        <div class="four-card reveal-item">
+          <span class="kicker-pill sky">課堂四學 02</span>
+          <h3 class="subhead">組內共學</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.93rem;">
+            小組成員帶著各自與 AI 探究的筆記，討論思考盲點，一起檢核並修正解法。
+          </p>
+        </div>
+        <div class="four-card reveal-item">
+          <span class="kicker-pill tangerine">課堂四學 03</span>
+          <h3 class="subhead">組間互學</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.93rem;">
+            各組上台分享探究過程與精靈引導出的創意構想，互相提問、給出回饋建議。
+          </p>
+        </div>
+        <div class="four-card reveal-item">
+          <span class="kicker-pill grape">課堂四學 04</span>
+          <h3 class="subhead">教師導學</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.93rem;">
+            老師依據後台對話紀錄與診斷報表精準點撥迷思概念，為全班做深度的統整歸納。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Teacher Exclusive Zone -->
+    <section id="teacher-zone" class="section-block" data-audience="teacher">
+      <div class="section-header">
+        <div class="section-header-copy">
+          <span class="kicker-pill grape">
+            <i data-lucide="briefcase" width="15" height="15"></i>
+            單元四｜教師專屬專區：數據報表與備課魔法
+          </span>
+          <h2 class="section-title">精準追蹤學生歷程 × 備課 <em>兩大新功能</em></h2>
+          <p class="prose-lead">
+            老師不只能從後台看清楚每位孩子跟 AI 聊了什麼、卡在哪個知識節點，更能使用「專屬 e 度設計師」與「講義魔法精靈」，把備課時間省下來留給班級陪伴！
+          </p>
+        </div>
+      </div>
+
+      <!-- Part A: Teacher Report Path & Explorer -->
+      <div class="teacher-panel reveal-item">
+        <div>
+          <span class="kicker-pill sky">後台報表查詢指南</span>
+          <h3 class="subhead" style="margin-top:var(--space-xs);">三步驟進入「AI 學習夥伴報表」</h3>
+        </div>
+
+        <div class="path-steps">
+          <div class="path-step">
+            <span class="step-badge">1</span>
+            <span>登入「教育部因材網」教師帳號</span>
+          </div>
+          <div class="path-step">
+            <span class="step-badge">2</span>
+            <span>點選左側功能列「報表」選單</span>
+          </div>
+          <div class="path-step">
+            <span class="step-badge">3</span>
+            <span>進入「AI 學習夥伴報表」開始篩選</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+          <span class="field-label">點選切換三種報表類型，查看可追蹤項目：</span>
+          <div class="segmented-track" role="group" aria-label="報表類型切換">
+            <button type="button" class="seg-btn active" onclick="showReportTab('general', this)">通用型對話紀錄</button>
+            <button type="button" class="seg-btn" onclick="showReportTab('hours', this)">使用時數報表</button>
+            <button type="button" class="seg-btn" onclick="showReportTab('subject', this)">學科領域報表</button>
+          </div>
+        </div>
+
+        <div id="report-detail-card" class="report-detail-card"></div>
+      </div>
+
+      <!-- Part B: Two New Teacher Prep Superpowers -->
+      <div class="prep-tools-grid">
+        <!-- Tool 1: Exclusive e度 Designer -->
+        <article class="prep-card reveal-item">
+          <span class="kicker-pill">教師備課新功能 01</span>
+          <h3 class="subhead" style="font-size:1.45rem;">專屬 e 度設計師</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.95rem;">
+            針對特定單元量身打造專屬 AI 學習夥伴！老師可自訂提示詞、模型設定與課程知識庫，測試滿意後直接派送任務給班級或個別學生。
+          </p>
+
+          <ul class="workflow-list">
+            <li><span class="wf-num">1</span><span><strong>建立與設定：</strong>點選建立專屬 e度，填寫引導提示詞（Prompt）、模型設定與上傳單元知識庫。</span></li>
+            <li><span class="wf-num">2</span><span><strong>即時問答測試：</strong>在右側對話框直接試聊，確認 AI 回應完全符合教材深度與蘇格拉底引導語氣。</span></li>
+            <li><span class="wf-num">3</span><span><strong>派送任務：</strong>設定任務名稱，自由選擇指派給全班或個別差異化學生。</span></li>
+            <li><span class="wf-num">4</span><span><strong>追蹤學習：</strong>學生開始自學後，老師可隨時在報表查看近況與完整逐字對話歷程。</span></li>
+          </ul>
+
+          <div class="designer-preset-wrap">
+            <span class="field-label">點選單元範例，預覽專屬 Prompt 設計點子：</span>
+            <div class="filter-group">
+              <button type="button" class="filter-pill active" onclick="showDesignerPreset('math', this)">五年級分數加減</button>
+              <button type="button" class="filter-pill" onclick="showDesignerPreset('science', this)">四年級水生植物</button>
+              <button type="button" class="filter-pill" onclick="showDesignerPreset('chinese', this)">三年級記敘文寫作</button>
+            </div>
+            <div id="designer-preset-box" class="designer-preset-box"></div>
+          </div>
+        </article>
+
+        <!-- Tool 2: Handout Magic Sprite -->
+        <article class="prep-card magic reveal-item">
+          <span class="kicker-pill sky">教師備課新功能 02</span>
+          <h3 class="subhead" style="font-size:1.45rem;">講義魔法精靈</h3>
+          <p style="margin:0;color:var(--on-surface-variant);font-size:0.95rem;">
+            透過對話式共創教材大綱與版面風格，自動為老師產出<strong>共 8 頁 A4 垂直印刷講義</strong>，並支援<strong>一鍵打包下載 PDF 及圖片</strong>，教室列印超省力！
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+            <span class="field-label">點選下方 1–8 頁藍圖，預覽自動生成的 A4 講義架構：</span>
+            <div class="a4-grid" role="group" aria-label="8頁A4講義結構預覽">
+              <button type="button" class="a4-page-btn active" onclick="showA4Page(1, this)"><span>P.1</span><span>單元核心導覽</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(2, this)"><span>P.2</span><span>核心知識圖解</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(3, this)"><span>P.3</span><span>生活實踐任務</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(4, this)"><span>P.4</span><span>基礎概念練習</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(5, this)"><span>P.5</span><span>進階評量題目</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(6, this)"><span>P.6</span><span>單元重點總結</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(7, this)"><span>P.7</span><span>雙向診斷對應表</span></button>
+              <button type="button" class="a4-page-btn" onclick="showA4Page(8, this)"><span>P.8</span><span>解答與教學指引</span></button>
+            </div>
+            <div id="a4-preview-box" class="a4-preview-box"></div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:auto;">
+            <span class="kicker-pill mint"><i data-lucide="file-text" width="15" height="15"></i>A4 垂直排版 8 頁</span>
+            <span class="kicker-pill grape"><i data-lucide="download" width="15" height="15"></i>一鍵打包 PDF 與圖片</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Teacher Prep Checklist (Persisted via notebookAppApi) -->
+      <div class="checklist-panel reveal-item">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-md);">
+          <div>
+            <span class="kicker-pill mint">開課前準備小幫手</span>
+            <h3 class="subhead" style="margin-top:4px;">教師導入 e度 課堂檢核表</h3>
+          </div>
+          <button type="button" class="btn btn-outline" onclick="resetTeacherChecklist(this)">重設檢核表</button>
+        </div>
+        <div class="check-items">
+          <label class="check-label">
+            <input type="checkbox" data-check="c1" onchange="toggleChecklist(this)">
+            <span>帶全班認識 3 大 AI 素養與隱私安全守則</span>
+          </label>
+          <label class="check-label">
+            <input type="checkbox" data-check="c2" onchange="toggleChecklist(this)">
+            <span>挑選 1～2 位通用精靈讓學生複製提示詞實作</span>
+          </label>
+          <label class="check-label">
+            <input type="checkbox" data-check="c3" onchange="toggleChecklist(this)">
+            <span>用「專屬 e 度設計師」完成單元試聊並派送任務</span>
+          </label>
+          <label class="check-label">
+            <input type="checkbox" data-check="c4" onchange="toggleChecklist(this)">
+            <span>課後到「AI 學習夥伴報表」檢視學生對話歷程</span>
+          </label>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast-pill" class="toast-pill" role="status" aria-live="polite">
+    <i data-lucide="check-circle-2" width="18" height="18"></i>
+    <span id="toast-msg">已複製提示詞！</span>
   </div>
 
   <api-shim></api-shim>
-
   <script>
-    // =========================================================================
-    // DATA: 7 SPIRITS, SUBJECT CONSTELLATION, SCAFFOLD SIMULATOR, 35 PROMPTS
-    // =========================================================================
-    const SPIRITS = [
+    // Data: All 9 Sprites with exact prompts from user request
+    const SPRITES = [
       {
-        id: `general`,
+        id: 1,
         name: `一般模式`,
-        tagline: `日常邏輯與各科計算引導`,
-        badge: `全科小教練`,
-        tintClass: `tint-pink`,
-        description: `日常作業的好幫手！不管是一般數學計算、生活邏輯問題，還是跨科目的基本疑問，它都會先了解你哪裡卡住，再用生活小故事陪你一步一步推敲答案。`,
-        bestFor: `數學習題、四則運算、時間計算、邏輯推理卡關時`,
-        studentSample: `我是三年級學生，我算數學乘法時常常搞不清楚位數，你可以出一個生活中的例子一步一步考考我嗎？`,
-        eduSample: `沒問題！想像班上買了 14 盒彩色筆，每盒有 12 枝。如果我們先把 14 拆成「10」和「4」，你覺得 4 盒有幾枝、10 盒又有幾枝呢？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-pink"/><rect x="14" y="14" width="20" height="20" rx="6" class="svg-primary"/><circle cx="20" cy="22" r="2.2" class="svg-white"/><circle cx="28" cy="22" r="2.2" class="svg-white"/><path d="M19 28 Q24 32 29 28" stroke="var(--surface-container-low)" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>`
+        category: `math`,
+        categoryLabel: `萬能引導`,
+        isNew: false,
+        avatarBg: ``,
+        highlight: `萬能引導小老師｜蘇格拉底提問建立鷹架`,
+        scenario: `寫作業或複習遇到卡關題目，需要小老師一步一步帶你想出算式與解題步驟。`,
+        prompt: `我是三年級學生，這道數學題「小明有 25 顆糖果，分給 4 個人，每人一樣多，還剩下幾顆？」我不知道該怎麼列算式，請一步一步引導我想出答案。`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><circle cx="32" cy="34" r="22" fill="var(--primary)"/><circle cx="24" cy="31" r="4" fill="var(--surface-container-low)"/><circle cx="40" cy="31" r="4" fill="var(--surface-container-low)"/><path d="M25 41 Q32 47 39 41" fill="none" stroke="var(--surface-container-low)" stroke-width="3.5" stroke-linecap="round"/><path d="M18 18 L32 10 L46 18 L32 24 Z" fill="var(--sunflower)"/></svg>`
       },
       {
-        id: `science`,
-        name: `自然探究精靈`,
-        tagline: `5E探究與培養科學家思維`,
-        badge: `小小科學家`,
-        tintClass: `tint-sky`,
-        description: `對大自然充滿好奇嗎？自然探究精靈不會只給你百科全書式的冷冰冰名詞，而是像實驗室夥伴一樣，引導你觀察現象、提出假設、設計小實驗來驗證！`,
-        bestFor: `植物與昆蟲觀察、電路實作、彩虹、天氣與焚風探究`,
-        studentSample: `我是五年級學生，我在自然課觀察校園的大花咸豐草，我想知道為什麼它的種子會黏在我的襪子上？`,
-        eduSample: `觀察得好仔細！請你先拿起放大鏡摸摸看或看看種子的「頭頂」長了什麼形狀？像小鉤子，還是像降落傘呢？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-sky"/><circle cx="22" cy="22" r="9" class="svg-tertiary"/><line x1="29" y1="29" x2="37" y2="37" class="svg-stroke-ink"/><circle cx="22" cy="22" r="4.5" class="svg-white"/></svg>`
-      },
-      {
-        id: `reading`,
+        id: 2,
         name: `文思精靈`,
-        tagline: `閱讀理解與批判思考`,
-        badge: `閱讀思辨家`,
-        tintClass: `tint-grape`,
-        description: `讀完課文或新聞報導後，總是寫不出心得嗎？文思精靈最擅長陪你讀懂文章弦外之音，從不同角色的立場看事情，培養獨立思考與媒體識讀力。`,
-        bestFor: `課文大意整理、主角動機分析、新聞與廣告真偽辨識`,
-        studentSample: `我是四年級學生，讀完「石虎保育與開發公路」後不太懂為什麼大家意見不一樣，請引導我找出重點！`,
-        eduSample: `這真的是很值得討論的題目！我們先試著站在「居民」和「保育員」兩個位置：如果是住在山邊的阿公，他最希望公路帶來什麼方便呢？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-grape"/><path d="M12 16 Q18 13 24 16 Q30 13 36 16 L36 33 Q30 30 24 33 Q18 30 12 33 Z" class="svg-secondary"/><line x1="24" y1="16" x2="24" y2="33" stroke="var(--surface-container-low)" stroke-width="2"/></svg>`
+        category: `reading`,
+        categoryLabel: `閱讀理解`,
+        isNew: false,
+        avatarBg: `sky`,
+        highlight: `閱讀理解引導｜直接提取、詮釋到推論批判`,
+        scenario: `想根據年級讀一篇符合課綱的短文，練習抓出段落重點並回答思考問題。`,
+        prompt: `我是四年級學生，我想讀一篇關於「台灣黑熊生活習性」的文章，讀完後請出幾道問題考考我，教我找出故事的重點。`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><rect x="12" y="16" width="40" height="34" rx="10" fill="var(--tertiary)"/><rect x="17" y="21" width="14" height="24" rx="3" fill="var(--surface-container-low)"/><rect x="33" y="21" width="14" height="24" rx="3" fill="var(--surface-container-low)"/><circle cx="44" cy="18" r="9" fill="var(--primary)"/><path d="M40 18 L43 21 L48 15" fill="none" stroke="var(--surface-container-low)" stroke-width="2.5" stroke-linecap="round"/></svg>`
       },
       {
-        id: `writing`,
+        id: 3,
+        name: `自然探究精靈`,
+        category: `explore`,
+        categoryLabel: `5E 探究`,
+        isNew: false,
+        avatarBg: `mint`,
+        highlight: `5E 探究模式｜參與、探索、解釋、精緻化、評量`,
+        scenario: `在生活或自然課觀察到好奇的現象，想自己提出假設、設計觀察步驟找出科學原理。`,
+        prompt: `我是三年級學生，我在操場看到影子一下長一下短，我想了解影子的變化，請帶我用 5E 步驟一步步做觀察和探究！`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="var(--positive)"/><path d="M26 16 H38 L44 42 A6 6 0 0 1 38 48 H26 A6 6 0 0 1 20 42 Z" fill="var(--surface-container-low)"/><path d="M23 36 H41 L43 43 A4 4 0 0 1 39 46 H25 A4 4 0 0 1 21 43 Z" fill="var(--sunflower)"/><circle cx="32" cy="27" r="3" fill="var(--tertiary)"/></svg>`
+      },
+      {
+        id: 4,
         name: `寫作精靈`,
-        tagline: `激發靈感不代筆，整理段落`,
-        badge: `靈感魔術師`,
-        tintClass: `tint-amber`,
-        description: `堅持「激發靈感不代筆」原則！它會透過提問幫你挖掘生活回憶、發想論點句與好詞佳句，提醒你「先自己想 → 請e度給建議 → 最後改成自己的話」。`,
-        bestFor: `作文開頭卡關、看圖寫作、議論文結構檢查與潤飾`,
-        studentSample: `我是五年級學生，老師要我們寫四段「談合作」作文，請幫我檢查架構並引導我想出合作成功的例子！`,
-        eduSample: `四段結構很清楚喔！在寫第二段的合作成功例子前，我們用「發生什麼困難→大家怎麼分工→最後結果」來聊聊，你印象最深的是哪一次分組呢？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-amber"/><path d="M16 32 L20 18 L32 14 L28 28 Z" class="svg-primary"/><circle cx="32" cy="14" r="3" class="svg-container"/></svg>`
+        category: `reading`,
+        categoryLabel: `寫作引導`,
+        isNew: false,
+        avatarBg: `grape`,
+        highlight: `激發靈感不代筆｜先確認寫作方向才建構文章`,
+        scenario: `面對作文題目腦袋一片空白時，讓精靈一句一句提問，把你的親身經歷變成好文章。`,
+        prompt: `我是二年級學生，我想寫一篇題目叫「我最難忘的校外教學」，但我不知道第一段要寫什麼，請一句一句問我，幫我想出內容。`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="var(--secondary)"/><path d="M20 44 L24 30 L40 14 L50 24 L34 40 Z" fill="var(--sunflower)"/><path d="M20 44 L26 42 L22 38 Z" fill="var(--on-surface)"/><rect x="38" y="16" width="10" height="6" rx="2" transform="rotate(45 43 19)" fill="var(--primary)"/></svg>`
       },
       {
-        id: `drawing`,
+        id: 5,
         name: `繪圖精靈`,
-        tagline: `多輪引導構思，不直接給圖`,
-        badge: `畫面小導演`,
-        tintClass: `tint-pink`,
-        description: `跟一般的繪圖 AI 不同！當你想生成圖片時，繪圖精靈不會立刻畫出來，而是會先陪你討論「主角是誰、背景環境、動作表情、色彩光線」，確認構思方向後才協助生圖。`,
-        bestFor: `童詩插畫、海報封面設計、故事場景具象化想像`,
-        studentSample: `我是三年級學生，我想請你幫我把童詩「Rain, rain, go away」畫成一張圖！`,
-        eduSample: `太棒了！在動筆前我想先當你的小導演：你希望主角小強尼是站在窗戶邊往外看，還是穿著雨衣呢？天空和屋子想用什麼顏色？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-pink"/><circle cx="24" cy="24" r="12" class="svg-container"/><circle cx="19" cy="20" r="2.8" class="svg-primary"/><circle cx="28" cy="19" r="2.8" class="svg-secondary"/><circle cx="27" cy="28" r="2.8" class="svg-tertiary"/></svg>`
+        category: `explore`,
+        categoryLabel: `構圖出圖`,
+        isNew: false,
+        avatarBg: `tangerine`,
+        highlight: `引導構圖出圖｜先想好人物、環境與色彩才生成`,
+        scenario: `讀完課文或詩詞想畫插圖，精靈會先陪你討論主角動作、背景光影和畫風，再把畫變出來。`,
+        prompt: `我是四年級學生，我們剛讀完《遊子吟》，我想畫一張「媽媽在微弱燈光下幫小孩縫衣服」的水彩風格插圖，請引導我完成構圖細節。`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><path d="M32 10 C48 10 54 24 50 36 C47 45 38 42 36 47 C34 52 24 54 16 46 C8 38 14 10 32 10 Z" fill="var(--tangerine)"/><circle cx="24" cy="24" r="5" fill="var(--primary)"/><circle cx="38" cy="22" r="5" fill="var(--sunflower)"/><circle cx="42" cy="34" r="5" fill="var(--tertiary)"/><circle cx="24" cy="40" r="4" fill="var(--surface-container-low)"/></svg>`
       },
       {
-        id: `sdl`,
+        id: 6,
         name: `自主學習精靈`,
-        tagline: `目標規劃、策略與自我監控`,
-        badge: `時間小管家`,
-        tintClass: `tint-green`,
-        description: `幫你從「被叫去寫功課」變成「自己的時間主人」！協助拆解考前複習進度、訂定每天做得到的小目標，並教你用檢查表追蹤學習成效。`,
-        bestFor: `考前複習計畫、放學時間管理、影片筆記與錯題檢討`,
-        studentSample: `我是五年級學生，下禮拜就要期中考了，三科都還沒讀完好慌張，請幫我規劃計畫！`,
-        eduSample: `別慌張，我們先把三科拆成小塊！今天放學後你願意先花 25 分鐘解決哪一科最容易得分的單元呢？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-green"/><circle cx="24" cy="24" r="11" class="svg-secondary"/><path d="M24 17 L24 24 L29 27" stroke="var(--surface-container-low)" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>`
+        category: `habit`,
+        categoryLabel: `目標規劃`,
+        isNew: false,
+        avatarBg: `sun`,
+        highlight: `自主學習四步驟｜定目標、選策略、監評與調整`,
+        scenario: `準備開始今天的新單元或段考複習前，陪你規劃讀書時間表，學完還會一起檢討進度。`,
+        prompt: `我是五年級學生，我今天要在因材網完成「分數的乘法」單元，請引導我設定今天的學習目標與複習計畫。`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="var(--sunflower)"/><circle cx="32" cy="32" r="15" fill="var(--surface-container-low)"/><polygon points="32,20 37,32 32,44 27,32" fill="var(--primary)"/><circle cx="32" cy="32" r="3.5" fill="var(--on-surface)"/></svg>`
       },
       {
-        id: `joyful`,
+        id: 7,
         name: `樂學精靈`,
-        tagline: `步調放慢、遊戲化、情緒支持`,
-        badge: `暖心打氣員`,
-        tintClass: `tint-grape`,
-        description: `覺得功課好難、怕答錯或心情沮喪嗎？樂學精靈最有耐心！它會把步調放慢、拆成小關卡遊戲，先溫暖地肯定你的努力，陪你找回「我也可以」的自信。`,
-        bestFor: `背單字氣餒、上台發表緊張、小考失利需要打氣時`,
-        studentSample: `我是三年級學生，英語單字背了又忘，覺得自己好笨，我有點不想背了……`,
-        eduSample: `你願意說出來已經很勇敢了！大腦記新字本來就需要多見幾次面，我們今天不背十個，先用「猜謎小遊戲」一起認識 2 個動物單字就好，準備好了嗎？`,
-        svgMarkup: `<svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><circle cx="24" cy="24" r="20" class="svg-tint-grape"/><path d="M24 35 C15 29 12 23 15 18 C18 14 22 16 24 19 C26 16 30 14 33 18 C36 23 33 29 24 35 Z" class="svg-primary"/></svg>`
+        category: `habit`,
+        categoryLabel: `溫暖減壓`,
+        isNew: false,
+        avatarBg: ``,
+        highlight: `溫暖鼓勵減壓夥伴｜放慢步調、遊戲化友善陪伴`,
+        scenario: `學新東西覺得好挫折、怕算錯的時候，讓語氣最溫柔的樂學精靈慢慢陪你做一題建立信心。`,
+        prompt: `我是三年級學生，除法直式計算我常常搞不清楚商要寫在哪裡，我覺得好灰心，請慢慢陪我做一題練習好嗎？`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="var(--primary-container)"/><path d="M32 46 C32 46 16 36 16 25 C16 19 21 16 26 16 C29 16 31 18 32 20 C33 18 35 16 38 16 C43 16 48 19 48 25 C48 36 32 46 32 46 Z" fill="var(--primary)"/><circle cx="25" cy="26" r="2.5" fill="var(--surface-container-low)"/><circle cx="39" cy="26" r="2.5" fill="var(--surface-container-low)"/></svg>`
+      },
+      {
+        id: 8,
+        name: `個人化互動精靈`,
+        category: `math`,
+        categoryLabel: `互動小工具`,
+        isNew: true,
+        avatarBg: `sky`,
+        highlight: `打造動手操作互動小工具，把難懂知識變具象`,
+        scenario: `抽象的等值分數、幾何圖形或單位換算看不懂時，請精靈直接生出可以拖拉切分的小工具！`,
+        prompt: `我是四年級學生，我搞不懂為什麼 1/2 和 2/4 是一樣大的？可以為我打造專屬的互動小工具，讓我動手切切看、比比看嗎？`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><rect x="12" y="12" width="40" height="40" rx="12" fill="var(--tertiary)"/><rect x="18" y="20" width="12" height="12" rx="4" fill="var(--sunflower)"/><rect x="34" y="20" width="12" height="12" rx="4" fill="var(--surface-container-low)"/><rect x="18" y="36" width="28" height="8" rx="4" fill="var(--primary)"/><circle cx="38" cy="40" r="5" fill="var(--surface-container-low)"/></svg>`
+      },
+      {
+        id: 9,
+        name: `學習卡點突破精靈`,
+        category: `math`,
+        categoryLabel: `診斷盲點`,
+        isNew: true,
+        avatarBg: `grape`,
+        highlight: `針對卡關弱點出挑戰題，精準診斷算錯盲點`,
+        scenario: `同一種題型總是算錯卻不知道哪裡搞混，請它出挑戰題揪出你的思維小盲點並突破難關！`,
+        prompt: `我是五年級學生，我遇到「3/4 公尺的繩子用掉 1/3 公尺，分母不同要怎麼減？」卡住了，請出一道挑戰題考考我，幫我找出算錯的原因！`,
+        svg: `<svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="var(--secondary)"/><circle cx="32" cy="32" r="14" fill="var(--surface-container-low)"/><circle cx="32" cy="32" r="7" fill="var(--primary)"/><path d="M44 12 L52 20 L35 33 L31 29 Z" fill="var(--sunflower)"/></svg>`
       }
     ];
 
-    const SUBJECT_NODES = {
+    const DIALOGUE_DEMOS = {
+      general: [
+        { who: `student`, text: `這道數學題「25 顆糖果分給 4 個人，每人一樣多，還剩幾顆？」我不知道怎麼列算式！` },
+        { who: `ai`, text: `沒問題！我們先想像一下：如果先每人發 5 顆，4 個人一共發掉了幾顆糖果呢？` },
+        { who: `student`, text: `5 × 4 = 20 顆！還剩 5 顆！` },
+        { who: `ai`, text: `很棒喔！那剩下的 5 顆還能再一人多發 1 顆嗎？試著看看最後會剩下幾顆！` }
+      ],
+      writing: [
+        { who: `student`, text: `我想寫「我最難忘的校外教學」，但不知道第一段要寫什麼。` },
+        { who: `ai`, text: `我們一起把回憶找出來！那天早上出發前，你們去哪裡、心情是緊張還是興奮呢？` },
+        { who: `student`, text: `我們去科博館，我在遊覽車上超興奮，一直看窗外！` },
+        { who: `ai`, text: `好有畫面感！如果把「太陽公公照著遊覽車、我期待的心情」寫進第一段開頭，你想怎麼說？` }
+      ],
+      nature: [
+        { who: `student`, text: `我在操場看到影子一下長一下短，請帶我用 5E 步驟探究！` },
+        { who: `ai`, text: `【步驟 1 參與】太敏銳的觀察了！你看到的短影子和長影子，分別是在早自習、中午還是放學的時候呢？` },
+        { who: `student`, text: `中午的時候影子變得超短！` },
+        { who: `ai`, text: `【步驟 2 探索】答對關鍵了！接下來我們來猜猜看，這和太陽在天空中的「高度」有什麼關係？` }
+      ]
+    };
+
+    const REPORT_TABS = {
+      general: {
+        title: `通用型對話紀錄`,
+        desc: `老師可以查看全班每位學生與 9 位精靈互動的完整次數與逐字對話歷程，了解孩子是「直接要答案」還是「跟著鷹架一步步思考」。`,
+        filters: [`選擇學期`, `班級類型 / 班級`, `查詢內容：對話紀錄`, `學伴類型：通用型`, `學生姓名 / 時間區間`],
+        insight: `備課亮點：快速發現全班學生最常向 AI 提問的卡關題型，作為隔天課堂導學切入點！`
+      },
+      hours: {
+        title: `使用時數報表`,
+        desc: `統計班級與個別學生在課堂內外使用 e度 的總時數與頻率分佈，掌握數位自主學習投入度。`,
+        filters: [`選擇學期`, `班級類型 / 班級`, `查詢內容：使用時數`, `時數排行與趨勢統計`],
+        insight: `備課亮點：搭配課堂四學觀察，協助時數偏低或過度依賴的學生調整學習節奏。`
+      },
+      subject: {
+        title: `學科領域報表`,
+        desc: `緊密結合「科目、出版社、年級與知識節點代碼」，讓老師一眼掌握學生在特定節點的作答率與動態評量引導歷程。`,
+        filters: [`選擇學期與班級`, `學伴類型：學科領域`, `科目 / 出版社 / 年級`, `知識節點代碼`],
+        insight: `備課亮點：點選單一節點即可看「作答率」與「向上／向下動態評量」記錄，精準進行差異化補救！`
+      }
+    };
+
+    const DESIGNER_PRESETS = {
       math: {
-        label: `數學`,
-        prev: `二位數乘以一位數與進位`,
-        curr: `三位數乘以二位數直式計算`,
-        next: `四則運算與生活購物應用題`,
-        remedyMsg: `系統從診斷測驗偵測到「十位乘法對齊錯誤」，學科夥伴立即啟動先備知識節點補救，先用積木與位置表複習進位概念！`,
-        advanceMsg: `恭喜通過節點精熟診斷！學科夥伴為你推薦個人化進階任務，挑戰把直式乘法運用在園遊會預算規劃問題。`
-      },
-      chinese: {
-        label: `國語`,
-        prev: `認識自然段與找關鍵句`,
-        curr: `歸納課文各段大意與核心主旨`,
-        next: `比較多篇文章觀點與寫作仿寫`,
-        remedyMsg: `診斷顯示對「找關鍵句」還不夠熟悉，系統自動帶你回到先備知識節點，透過劃重點小練習打穩閱讀基礎！`,
-        advanceMsg: `節點測驗表現優異！系統解鎖進階學習節點，引導你嘗試寫出一百字以內的讀後心得並練習延伸提問。`
-      },
-      english: {
-        label: `英語`,
-        prev: `基礎字母拼讀與日常問候語`,
-        curr: `詢問喜好與食物單字句型練習`,
-        next: `校園點餐情境對話與短文閱讀`,
-        remedyMsg: `系統偵測到部分單字拼讀音節容易混淆，學科夥伴自動補齊先備自然發音練習，放慢速度陪你唸出來！`,
-        advanceMsg: `你已經穩穩掌握這個句型節點囉！系統開啟進階挑戰，邀請你在模擬點餐任務中運用完整問答句。`
+        title: `五年級數學｜異分母分數加減`,
+        prompt: `你是一位親切的國小數學引導老師。當學生提出分數減法問題時，禁止直接給出通分結果；請先詢問兩個分母是否相同，並引導學生自己找出最小公倍數作為共同分母。`,
+        kb: `掛載五年級分數單元課本重點與常見迷思錯題集（如「分子直接相減、分母相減」錯誤類型）。`
       },
       science: {
-        label: `自然`,
-        prev: `認識電池正負極與基本通路`,
-        curr: `串聯與並聯燈泡的亮度變化`,
-        next: `設計簡易校園防盜警報器電路`,
-        remedyMsg: `測驗中發現「斷路與通路判斷」還沒完全掌握，系統自動引導回到先備節點，用動畫檢查電線接點位置！`,
-        advanceMsg: `太棒了！你已完全理解串並聯原理，學科夥伴建議向上挑戰「生活電路設計」進階節點！`
+        title: `四年級自然｜水生植物構造`,
+        prompt: `請運用 5E 探究式提問與學生對話。當學生問起布袋蓮為什麼能浮在水面上，請先請他觀察葉柄外觀，再引導推測內部氣室構造的功能。`,
+        kb: `掛載單元水生植物圖鑑摘要與實驗觀察紀錄表項目。`
+      },
+      chinese: {
+        title: `三年級國語｜記敘文寫作鷹架`,
+        prompt: `你是溫柔的作文陪伴夥伴，絕對不幫學生代寫段落。請依照「時間、地點、人物、心情感受」四個問題輪流提問，最後彙整成大綱讓學生自己動筆。`,
+        kb: `掛載三年級佳句詞彙庫與記敘文四要素檢查表。`
       }
     };
 
-    const SCAFFOLD_SCENARIOS = {
-      math: {
-        name: `數學位數對齊`,
-        steps: [
-          {
-            label: `Step 1 · 學生提問`,
-            role: `學生（三年級）`,
-            isEdu: false,
-            text: `「我是三年級學生，我在算 24 × 13 的時候，總是搞不清楚第二排要從哪裡開始寫，每次都算錯！」`,
-            note: `先說出年級、題目與自己卡關的地方（RISE 的 R 與 I），e度就能精準掌握起點。`
-          },
-          {
-            label: `Step 2 · 暗示引導`,
-            role: `e度 · 動態評量第一層（暗示）`,
-            isEdu: true,
-            text: `「別擔心，這是很多三年級同學都會遇到的魔王關！我們先把 13 拆成 10 和 3。你先算算看 24 × 3 是多少？寫完之後，10 的那個『1』代表 1 個什麼呢？」`,
-            note: `不直接告訴你「要空一格」，而是先給出「拆解 13」的小暗示。`
-          },
-          {
-            label: `Step 3 · 明示搭鷹架`,
-            role: `e度 · 動態評量第二層（明示）`,
-            isEdu: true,
-            text: `「答對了，代表 1 個十！所以 24 × 10 會是 240。為了讓位數對齊，第二排的 4 應該對齊十位，個位的地方要記得留空或補 0 喔！現在試著把 72 和 240 加起來看看！」`,
-            note: `學生想通一半後，e度再用明確的「位數鷹架」扶他站上正確位置。`
-          },
-          {
-            label: `Step 4 · 頓悟＋SEL 鼓勵`,
-            role: `e度 · SEL 正向肯定`,
-            isEdu: true,
-            text: `「哇！312 完全正確！你剛剛自己發現『10 的 1 在十位』這個秘密，真的超厲害！以後看到兩位數乘法，你也可以用這個小口訣檢查自己喔！」`,
-            note: `肯定具體的思考過程，讓孩子把「算對一題」變成「我掌握了方法」的自信。`
-          }
-        ]
-      },
-      draw: {
-        name: `繪圖精靈構思`,
-        steps: [
-          {
-            label: `Step 1 · 提出生圖需求`,
-            role: `學生（三年級）`,
-            isEdu: false,
-            text: `「我是三年級學生，請幫我把童詩 Rain, rain, go away, Little Johnny wants to play 畫成一張圖片！」`,
-            note: `學生提出畫面主題，繪圖精靈收到任務後，啟動「四輪構思引導」流程。`
-          },
-          {
-            label: `Step 2 · 引導構思元素`,
-            role: `e度繪圖精靈 · 第一層（人物與環境）`,
-            isEdu: true,
-            text: `「這首童詩好可愛！在生圖之前，我們先一起把畫面想清楚：主角小強尼現在幾歲、穿著什麼衣服？他在窗邊看著外面的大雨，還是在屋簷下呢？」`,
-            note: `繪圖精靈不會直接噴出圖片，而是先邀請孩子決定「人物、環境」元素。`
-          },
-          {
-            label: `Step 3 · 細節與色彩追問`,
-            role: `e度繪圖精靈 · 第二層（細節與色彩）`,
-            isEdu: true,
-            text: `「穿著黃色小雨衣站在木頭窗邊很棒呢！那他手上想拿著什麼玩具（例如小足球或紙船）？背景的雨天想用冷冷的灰藍色，還是帶一點期待放晴的微光呢？」`,
-            note: `根據學生的回饋，再追問表情、道具與色彩光線，讓抽象構思更具體。`
-          },
-          {
-            label: `Step 4 · 確認方向再生圖`,
-            role: `e度繪圖精靈 · 作品完成`,
-            isEdu: true,
-            text: `「太好了！我們確定了『穿黃色雨衣的小男孩、抱著足球望向窗外細雨、溫暖的屋內黃光對比窗外藍雨景』。現在為你生成這張專屬於你的插畫！」`,
-            note: `由學生親口確認構圖方向後才生圖，每張圖都是孩子自己想像力的結晶。`
-          }
-        ]
-      },
-      write: {
-        name: `寫作「談合作」`,
-        steps: [
-          {
-            label: `Step 1 · 提出寫作需求`,
-            role: `學生（五年級）`,
-            isEdu: false,
-            text: `「我是五年級學生，我要寫四段的『談合作』作文，可是不知道怎麼把例子寫生動，你可以幫我寫嗎？」`,
-            note: `許多孩子會希望 AI 直接代寫，但寫作精靈會堅守「激發靈感不代筆」的原則。`
-          },
-          {
-            label: `Step 2 · 討論架構與論點`,
-            role: `e度寫作精靈 · 步驟一（梳理結構）`,
-            isEdu: true,
-            text: `「寫作要靠自己的故事才會動人喔！我當你的靈感小幫手：第一段要先有清楚的『論點句』。你覺得『為什麼需要合作』？用一句短的話說給我聽聽看！」`,
-            note: `先協助學生說出核心論點，再對照四段檢核方向（論點→成功例→失敗例→總結）。`
-          },
-          {
-            label: `Step 3 · 5 步框架引導舉例`,
-            role: `e度寫作精靈 · 步驟二（框架提問）`,
-            isEdu: true,
-            text: `「『團結能完成一個人做不到的事』很棒！第二段的成功例子，我們用 5 步講清楚：當時任務是什麼→遇到什麼困難→怎麼分工→誰做了什麼→最後怎麼成功的？」`,
-            note: `提供「5 步框架」當作鷹架，幫助孩子把第二段、第三段正反例子講具體。`
-          },
-          {
-            label: `Step 4 · 自我檢核與改寫`,
-            role: `e度寫作精靈 · 步驟三（自己的話）`,
-            isEdu: true,
-            text: `「你的大隊接力例子超真實！現在試著把我們剛剛聊的句子用『你自己的話』寫成段落，寫完還可以對照檢查表看看有沒有離題喔！加油，你寫得很棒！」`,
-            note: `完成「先自己想 → 請e度給建議 → 改成自己的話」三部曲，真正提升寫作力。`
-          }
-        ]
-      }
+    const A4_PAGES = {
+      1: { title: `第 1 頁｜單元核心導覽與學習目標`, body: `用清楚的視覺標題與學生版「今天我會學到什麼？」學習地圖開場，對齊課綱單元學習表現。` },
+      2: { title: `第 2 頁｜核心知識圖解與概念講解`, body: `將繁雜課文轉化為重點圖表、關鍵詞框與口語化範例，幫助國小生快速看懂核心原理。` },
+      3: { title: `第 3 頁｜生活實踐任務單`, body: `結合真實生活情境（如超商購物、校園觀察），設計讓孩子帶回家或在校園動手做的任務。` },
+      4: { title: `第 4 頁｜基礎概念暖身練習`, body: `設計由淺入深的基礎題型，搭配圖示引導格，幫助程度待加強的學生建立自信。` },
+      5: { title: `第 5 頁｜進階評量與思辨挑戰題`, body: `包含素養導向情境應用題與開放式思考欄，訓練孩子解釋「為什麼這樣算／這樣想」。` },
+      6: { title: `第 6 頁｜單元重點總結與心智圖`, body: `一頁收斂全單元關鍵公式與概念脈絡，附帶學生自我檢核勾選格。` },
+      7: { title: `第 7 頁｜雙向診斷對應表`, body: `對照因材網知識節點與學習目標，明確標記各題目對應的先備能力與迷思診斷點！` },
+      8: { title: `第 8 頁｜教師解答與教學指引`, body: `附有完整解答、常見錯誤原因解析與課堂延伸提問建議，方便教師備課或親子共學核對。` }
     };
 
-    const PROMPTS = [
-      // 1. 一般模式 (5)
-      {
-        id: `gen-1`,
-        spiritId: `general`,
-        spiritName: `一般模式`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `乘法位數對齊小教練`,
-        tip: `e度會出貼近生活的小故事，一步步確認個位與十位。`,
-        text: `我是三年級學生，我算數學乘法時常常搞不清楚位數，你可以出一個生活中的例子一步一步考考我嗎？`
-      },
-      {
-        id: `gen-2`,
-        spiritId: `general`,
-        spiritName: `一般模式`,
-        gradeLevel: `low`,
-        gradeTag: `二年級`,
-        title: `買文具練兩位數借位減法`,
-        tip: `用買東西找錢的情境，練習十位借一當十不忘記。`,
-        text: `我是二年級學生，我在做兩位數減法借位時常常忘記十位數要少 1，請用買文具找錢的例子當小老師，出題目一步一步引導我算算看！`
-      },
-      {
-        id: `gen-3`,
-        spiritId: `general`,
-        spiritName: `一般模式`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `跨越中午的時間計算題`,
-        tip: `把 12 時制與 24 時制拆成小步驟，避免一減就出錯。`,
-        text: `我是四年級學生，遇到「上午幾點到下午幾點一共經過幾小時幾分鐘」的時間題就容易卡住，可以出一題看電影的例子，一次問我一個步驟帶我算嗎？`
-      },
-      {
-        id: `gen-4`,
-        spiritId: `general`,
-        spiritName: `一般模式`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `切披薩理解異分母通分`,
-        tip: `用圖像化思維理解為什麼分母不能直接相加。`,
-        text: `我是五年級學生，我在算「異分母分數相加」時常常直接把分母加在一起，請先不要告訴我公式，用切披薩的方法引導我想想看為什麼要先通分！`
-      },
-      {
-        id: `gen-5`,
-        spiritId: `general`,
-        spiritName: `一般模式`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `大隊接力解速率距離問題`,
-        tip: `用熟悉的校園運動會情境，搞懂乘除關係。`,
-        text: `我是六年級學生，數學課學到「速率、距離與時間」的應用題，我常搞混什麼時候要乘、什麼時候要除，請出一個校園大隊接力的情境題，一步一步提示我解題！`
-      },
-
-      // 2. 自然探究精靈 (5)
-      {
-        id: `sci-1`,
-        spiritId: `science`,
-        spiritName: `自然探究精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `校園大花咸豐草黏襪子之謎`,
-        tip: `引導從種子構造猜測傳播方式，培養科學觀察力。`,
-        text: `我是五年級學生，我在自然課觀察校園的大花咸豐草，我想知道為什麼它的種子會黏在我的襪子上？請引導我觀察。`
-      },
-      {
-        id: `sci-2`,
-        spiritId: `science`,
-        spiritName: `自然探究精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `蠶寶寶不動了是在蛻皮嗎？`,
-        tip: `像小小昆蟲學家一樣記錄線索、排除疑問。`,
-        text: `我是三年級學生，我在養蠶寶寶時發現牠突然不吃桑葉而且頭抬高高一動也不動，我很擔心，請用科學家的思考方式問我幾個問題，幫我觀察牠是不是準備要蛻皮或結繭了！`
-      },
-      {
-        id: `sci-3`,
-        spiritId: `science`,
-        spiritName: `自然探究精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `小燈泡不亮的電路偵探任務`,
-        tip: `逐步排查電池方向、接觸點與燈泡燈絲狀況。`,
-        text: `我是四年級學生，自然課要連接「燈泡、電線和電池」讓小燈泡發亮，可是我接好了卻不會亮，請引導我像偵探一樣一步一步檢查可能出錯的地方！`
-      },
-      {
-        id: `sci-4`,
-        spiritId: `science`,
-        spiritName: `自然探究精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `彩虹是什麼？太陽光與水滴探究`,
-        tip: `體驗用 5E 探究法思考折射與色散現象。`,
-        text: `我是五年級學生，我在下雨過後看到天空出現漂亮的彩虹，請問彩虹是什麼？請先不要直接講完答案，帶我用太陽光和小水滴做一個科學猜想！`
-      },
-      {
-        id: `sci-5`,
-        spiritId: `science`,
-        spiritName: `自然探究精靈`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `探索台東「焚風」變熱變乾的故事`,
-        tip: `從地形與水氣變化理解地方特色天氣現象。`,
-        text: `我是六年級學生，我在新聞聽到台東有時候會吹「焚風」，讓天氣突然變得又熱又乾，請用探究的方式引導我思考風翻過中央山脈後發生了什麼變化？`
-      },
-
-      // 3. 文思精靈 (5)
-      {
-        id: `read-1`,
-        spiritId: `reading`,
-        spiritName: `文思精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `石虎保育與開發公路的雙面思考`,
-        tip: `學習站在不同立場整理理由，練出批判思考。`,
-        text: `我是四年級學生，我剛讀完一篇介紹「石虎保育與開發公路」的課文，可是我不太懂為什麼大家意見不一樣，請用問題引導我找出雙方各自擔心的重點！`
-      },
-      {
-        id: `read-2`,
-        spiritId: `reading`,
-        spiritName: `文思精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `讀懂故事主角內心的秘密決定`,
-        tip: `擺脫只會照抄課文，練習推論人物心情與動機。`,
-        text: `我是三年級學生，讀故事書時老師要我們找出「主角為什麼做出這個決定」，我常常只會照抄課文句子，請陪我聊聊這個故事，引導我說出主角的心情！`
-      },
-      {
-        id: `read-3`,
-        spiritId: `reading`,
-        spiritName: `文思精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `小小媒體偵探：辨識誇張廣告`,
-        tip: `練習檢驗資料來源與證據，不輕易被廣告說服。`,
-        text: `我是五年級學生，我在網路上看到一則說「喝某種能量飲料就能考試變聰明」的廣告，我想練習批判思考，請教我用幾個問題去檢查這則消息可不可以相信！`
-      },
-      {
-        id: `read-4`,
-        spiritId: `reading`,
-        spiritName: `文思精靈`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `思考科技便利與隱私的平衡`,
-        tip: `針對科技議題進行正反兩面深度思辨。`,
-        text: `我是六年級學生，國語課讀完一篇關於「人工智慧幫助偏鄉醫療」的報導，請透過提問帶我思考：科技帶來方便的同時，有沒有需要小心的問題？`
-      },
-      {
-        id: `read-5`,
-        spiritId: `reading`,
-        spiritName: `文思精靈`,
-        gradeLevel: `low`,
-        gradeTag: `二年級`,
-        title: `用自己的話講出寓言故事的道理`,
-        tip: `從故事情節連回生活經驗，說出自己的心得。`,
-        text: `我是二年級學生，我今天讀了一則「烏鴉喝水」的寓言故事，我覺得很有趣但說不出它的道理，請用簡單的問題問問我，幫我把心得講出來！`
-      },
-
-      // 4. 寫作精靈 (5)
-      {
-        id: `write-1`,
-        spiritId: `writing`,
-        spiritName: `寫作精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `校慶運動會作文破題不空白`,
-        tip: `不代筆寫開頭，改用感官提問幫你抓出最精彩一幕。`,
-        text: `我是四年級學生，我要寫一篇題目是「難忘的校慶運動會」的作文，可是我開頭想了十分鐘還是空白，請不要幫我寫句子，先問我三個問題幫我找出最有感覺的畫面！`
-      },
-      {
-        id: `write-2`,
-        spiritId: `writing`,
-        spiritName: `寫作精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `四段議論文「談合作」結構健檢`,
-        tip: `依照論點、成功例、不合作例與總結檢查段落重點。`,
-        text: `我是五年級學生，老師出了一篇議論文「談合作」，我想分成四段寫清楚論點、合作成功例子、不合作例子與總結，請檢查我的想法並提醒我怎麼用五步框架把故事講清楚！`
-      },
-      {
-        id: `write-3`,
-        spiritId: `writing`,
-        spiritName: `寫作精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `校園秘密角落的五感描寫練習`,
-        tip: `擺脫「好漂亮、很好玩」，加入聲音與氣味細節。`,
-        text: `我是三年級學生，我想寫日記介紹「我最喜歡的校園角落」，可是我只會寫「很好玩、很漂亮」，請引導我用眼睛看、耳朵聽、鼻子聞來形容那個地方，我自己再改寫成段落！`
-      },
-      {
-        id: `write-4`,
-        spiritId: `writing`,
-        spiritName: `寫作精靈`,
-        gradeLevel: `low`,
-        gradeTag: `二年級`,
-        title: `雨天小狗看圖寫作變故事`,
-        tip: `練習抓出「誰、在哪裡、做什麼、心情如何」。`,
-        text: `我是二年級學生，我要練習「看圖寫作」，圖畫裡有一隻小狗在雨天撐傘等主人回家，請引導我說出圖片裡的時間、地點和人物心情，讓我自己組成短短的故事！`
-      },
-      {
-        id: `write-5`,
-        spiritId: `writing`,
-        spiritName: `寫作精靈`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `給老師的畢業感謝信不變流水帳`,
-        tip: `把感謝心意聚焦在一兩件真實小事，寫出溫度。`,
-        text: `我是六年級學生，畢業前我想寫一封感謝信給陪伴我的老師，但我怕寫得像流水帳，請幫我梳理我想感謝的兩件小事，引導我寫出真誠又動人的結尾！`
-      },
-
-      // 5. 繪圖精靈 (5)
-      {
-        id: `draw-1`,
-        spiritId: `drawing`,
-        spiritName: `繪圖精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `童詩 Rain, rain, go away 場景構思`,
-        tip: `先討論人物表情、衣著與天氣色調再確認生圖。`,
-        text: `我是三年級學生，英語課學了一首童詩「Rain, rain, go away」，我想把小強尼想出去玩的畫面畫出來，請先不要直接幫我生圖，一步一步問我主角表情、背景天氣和色彩搭配！`
-      },
-      {
-        id: `draw-2`,
-        spiritId: `drawing`,
-        spiritName: `繪圖精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `台灣早期農村稻田豐收插畫`,
-        tip: `把社會課本學到的畫面，拆成前景人物與遠景山色。`,
-        text: `我是四年級學生，社會課剛學完台灣早期農村生活，我想設計一張「古早味稻田豐收」的插畫，請引導我想好畫面裡的人物動作、遠近風景和溫暖的色調再確認生圖！`
-      },
-      {
-        id: `draw-3`,
-        spiritId: `drawing`,
-        spiritName: `繪圖精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `守護海洋海龜環保海報封面`,
-        tip: `練習構圖焦點安排與畫面色彩對比設計。`,
-        text: `我是五年級學生，我想為我的科學海報設計一張「保護海洋海龜」的封面圖，請透過提問幫我把海龜主角、乾淨海水和警示元素的位置構思清楚！`
-      },
-      {
-        id: `draw-4`,
-        spiritId: `drawing`,
-        spiritName: `繪圖精靈`,
-        gradeLevel: `low`,
-        gradeTag: `二年級`,
-        title: `夢裡的雲朵遊樂園大冒險`,
-        tip: `發揮天馬行空想像力，一步步把夢境說清楚。`,
-        text: `我是二年級學生，我想畫出「我夢見一隻會飛的粉紅色大象帶我去雲朵遊樂園」，請先問問我大象長什麼樣子、雲朵上有什麼設施，再幫我把想像變成畫面！`
-      },
-      {
-        id: `draw-5`,
-        spiritId: `drawing`,
-        spiritName: `繪圖精靈`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `校慶園遊會「太空珍奶店」海報`,
-        tip: `為班級活動設計吸睛招牌，確認元素才出圖。`,
-        text: `我是六年級學生，我們班要製作園遊會攤位海報，主題是「太空珍珠奶茶店」，請一步步引導我決定主角造型、太空背景和招牌亮點顏色，確認方向後再生成圖片！`
-      },
-
-      // 6. 自主學習精靈 (5)
-      {
-        id: `sdl-1`,
-        spiritId: `sdl`,
-        spiritName: `自主學習精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `期中考前七天黃金複習計畫`,
-        tip: `把三科考題拆成每日 30 分鐘可執行的小任務。`,
-        text: `我是五年級學生，下個星期就是期中考了，我有國語、數學、自然三科要複習卻不知道從哪裡開始，請引導我盤點最弱的單元，一起訂一個每天 30 分鐘的複習計畫！`
-      },
-      {
-        id: `sdl-2`,
-        spiritId: `sdl`,
-        spiritName: `自主學習精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `放學不再滑平板到九點才趕作業`,
-        tip: `重新安排回家作息順序，兼顧休息與效率。`,
-        text: `我是四年級學生，我每天放學回家總是先玩平板，等到晚上九點才趕作業寫不完，請陪我檢討我的放學時間表，幫我設計一個能準時完成功課又能開心休息的小目標！`
-      },
-      {
-        id: `sdl-3`,
-        spiritId: `sdl`,
-        spiritName: `自主學習精靈`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `英語朗讀比賽的自主追蹤表`,
-        tip: `學習設定里程碑與練後自我檢核方法。`,
-        text: `我是六年級學生，這學期我想參加英語朗讀比賽，可是我練習幾天就容易偷懶，請教我怎麼設定每週小里程碑，還有每次練習後要怎麼檢查自己有沒有進步！`
-      },
-      {
-        id: `sdl-4`,
-        spiritId: `sdl`,
-        spiritName: `自主學習精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `看因材網知識節點影片不發呆`,
-        tip: `培養邊看影片邊暫停自問自答的主動筆記習慣。`,
-        text: `我是三年級學生，老師叫我們每天在家自主練習因材網的知識節點影片，可是我常常看一看就分心，請教我幾個邊看影片邊做筆記的小策略！`
-      },
-      {
-        id: `sdl-5`,
-        spiritId: `sdl`,
-        spiritName: `自主學習精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `設計專屬數學錯題檢查小卡`,
-        tip: `找出總是粗心或看錯題目的真正原因。`,
-        text: `我是五年級學生，我在寫數學作業時總是一錯再錯卻懶得訂正，請引導我設計一張「錯題檢查小卡」，讓我學會自己發現常犯的粗心原因！`
-      },
-
-      // 7. 樂學精靈 (5)
-      {
-        id: `joy-1`,
-        spiritId: `joyful`,
-        spiritName: `樂學精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `三年級`,
-        title: `用小遊戲輕鬆記住 2 個英語單字`,
-        tip: `把記憶壓力變小，透過趣味聯想重拾成就感。`,
-        text: `我是三年級學生，英語課要背好多動物和食物單字，我背了又忘覺得自己很笨有點想放棄，請放慢步調陪我用好玩的小遊戲一次記兩個單字就好！`
-      },
-      {
-        id: `joy-2`,
-        spiritId: `joyful`,
-        spiritName: `樂學精靈`,
-        gradeLevel: `low`,
-        gradeTag: `二年級`,
-        title: `不緊張！用節奏練 7 與 8 的乘法`,
-        tip: `先穩定呼吸心情，再用規律拍子練習不急躁。`,
-        text: `我是二年級學生，我算九九乘法表時比班上同學慢很多，每次搶答都覺得很緊張，請先給我一點鼓勵，再陪我用小節奏慢慢練習 7 和 8 的乘法！`
-      },
-      {
-        id: `joy-3`,
-        spiritId: `joyful`,
-        spiritName: `樂學精靈`,
-        gradeLevel: `mid`,
-        gradeTag: `四年級`,
-        title: `上台發表心得前的勇氣模擬關`,
-        tip: `把緊張感轉化為闖關練習，先練好第一句開場白。`,
-        text: `我是四年級學生，我明天要上台發表閱讀心得，現在心跳好快好害怕講錯話，請先安慰緊張的我，再陪我用「過三關」遊戲模擬練習開口第一句話！`
-      },
-      {
-        id: `joy-4`,
-        spiritId: `joyful`,
-        spiritName: `樂學精靈`,
-        gradeLevel: `high`,
-        gradeTag: `五年級`,
-        title: `考不好難過時，從最簡單一題找回信心`,
-        tip: `優先照顧情緒再談解題，建立正向學習體驗。`,
-        text: `我是五年級學生，這次數學小考我沒有考及格，回家不敢給媽媽看考卷覺得好難過，請先聽我說說心情，再陪我從最簡單的一題開始找回一點點自信！`
-      },
-      {
-        id: `joy-5`,
-        spiritId: `joyful`,
-        spiritName: `樂學精靈`,
-        gradeLevel: `high`,
-        gradeTag: `六年級`,
-        title: `長篇閱讀測驗的集星星闖關法`,
-        tip: `把長文章切成小段落，每讀懂一段就替自己集一顆星。`,
-        text: `我是六年級學生，遇到長長的國語閱讀測驗我就會頭昏眼花不想讀下去，請用輕鬆闖關的方式，陪我先讀完第一小段，幫自己集滿第一顆星星！`
-      }
-    ];
-
-    // =========================================================================
-    // STATE
-    // =========================================================================
-    var appState = {
-      activeSpirit: `general`,
-      subjectKey: `math`,
-      diagMode: `remedy`,
-      scaffoldScenario: `math`,
-      scaffoldStep: 0,
-      vaultSpirit: `all`,
-      vaultGrade: `all`,
-      vaultSearch: ``,
-      copiedIds: [],
-      riseBuilder: {
-        grade: `三年級`,
-        spirit: `一般模式`,
-        topic: `在算三位數除以一位數時常常忘記補 0`,
-        style: `請先不要直接告訴我答案，用生活中的例子一步一步考考我！`
-      }
+    // App State (persisted via notebookAppApi)
+    let appState = {
+      copiedSprites: [],
+      quizAnswers: {},
+      teacherChecks: {}
     };
 
-    var toastTimer = null;
+    let activeCategory = 'all';
+    let searchQuery = '';
 
-    // =========================================================================
-    // PERSISTENCE HELPERS (notebookAppApi only, no localStorage)
-    // =========================================================================
-    async function saveState() {
-      try {
-        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
-          await window.notebookAppApi.setAppState({
-            activeSpirit: appState.activeSpirit,
-            vaultSpirit: appState.vaultSpirit,
-            vaultGrade: appState.vaultGrade,
-            copiedIds: appState.copiedIds,
-            riseBuilder: appState.riseBuilder
-          });
-        }
-      } catch (err) {
-        // Safe fallback if running outside host
-      }
-    }
+    // Render 9 Sprites
+    function renderSprites() {
+      const grid = document.getElementById('sprites-grid');
+      const empty = document.getElementById('sprites-empty');
+      if (!grid || !empty) return;
 
-    async function loadState() {
-      try {
-        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
-          var saved = await window.notebookAppApi.getAppState();
-          if (saved && typeof saved === `object`) {
-            if (saved.activeSpirit) appState.activeSpirit = saved.activeSpirit;
-            if (saved.vaultSpirit) appState.vaultSpirit = saved.vaultSpirit;
-            if (saved.vaultGrade) appState.vaultGrade = saved.vaultGrade;
-            if (Array.isArray(saved.copiedIds)) appState.copiedIds = saved.copiedIds;
-            if (saved.riseBuilder && typeof saved.riseBuilder === `object`) {
-              appState.riseBuilder = Object.assign({}, appState.riseBuilder, saved.riseBuilder);
-            }
-          }
-        }
-      } catch (err) {
-        // Ignore gracefully
-      }
-    }
-
-    // =========================================================================
-    // CLIPBOARD & TOAST HELPER
-    // =========================================================================
-    function showToast(message) {
-      var toast = document.getElementById(`copy-toast`);
-      var textEl = document.getElementById(`copy-toast-text`);
-      if (!toast || !textEl) return;
-      textEl.textContent = message;
-      toast.classList.add(`is-visible`);
-      if (toastTimer) clearTimeout(toastTimer);
-      toastTimer = setTimeout(function () {
-        toast.classList.remove(`is-visible`);
-      }, 2400);
-    }
-
-    function copyTextToClipboard(text, onSuccess) {
-      if (navigator.clipboard && typeof navigator.clipboard.writeText === `function`) {
-        navigator.clipboard.writeText(text).then(function () {
-          onSuccess();
-        }).catch(function () {
-          fallbackCopy(text, onSuccess);
-        });
-      } else {
-        fallbackCopy(text, onSuccess);
-      }
-    }
-
-    function fallbackCopy(text, onSuccess) {
-      var area = document.createElement(`textarea`);
-      area.value = text;
-      area.setAttribute(`readonly`, ``);
-      area.style.position = `fixed`;
-      area.style.top = `-9999px`;
-      document.body.appendChild(area);
-      area.select();
-      try {
-        document.execCommand(`copy`);
-        onSuccess();
-      } catch (err) {
-        showToast(`請長按或反白提示詞文字進行複製`);
-      }
-      document.body.removeChild(area);
-    }
-
-    // =========================================================================
-    // SECTION 1: SPIRIT SELECTOR + DETAIL CARD
-    // =========================================================================
-    function renderSpiritList() {
-      var listEl = document.getElementById(`spirit-selector-list`);
-      if (!listEl) return;
-
-      var html = SPIRITS.map(function (sp) {
-        var activeClass = sp.id === appState.activeSpirit ? ` is-active` : ``;
-        var selectedAttr = sp.id === appState.activeSpirit ? `true` : `false`;
-        return `
-          <button type="button" class="spirit-btn${activeClass}" role="option" aria-selected="${selectedAttr}" onclick="selectSpirit('${sp.id}')">
-            <span class="spirit-avatar">${sp.svgMarkup}</span>
-            <span class="spirit-btn-meta">
-              <span class="spirit-btn-name">${sp.name}</span>
-              <span class="spirit-btn-sub">${sp.tagline}</span>
-            </span>
-          </button>
-        `;
-      }).join(``);
-
-      listEl.innerHTML = html;
-    }
-
-    function renderSpiritDetail() {
-      var detailEl = document.getElementById(`spirit-detail-card`);
-      if (!detailEl) return;
-
-      var sp = SPIRITS.find(function (item) { return item.id === appState.activeSpirit; }) || SPIRITS[0];
-
-      detailEl.innerHTML = `
-        <div class="spirit-detail-head">
-          <span class="spirit-avatar spirit-avatar-lg">${sp.svgMarkup}</span>
-          <div>
-            <span class="badge">${sp.badge}</span>
-            <h3 style="margin-top: var(--space-xs);">${sp.name}</h3>
-            <span class="muted" style="font-size: var(--label-size); font-weight: 700;">${sp.tagline}</span>
-          </div>
-        </div>
-        <p>${sp.description}</p>
-        <div>
-          <span class="control-label">最適合什麼時候找它？</span>
-          <p style="margin-top: var(--space-xs); font-weight: 700;">${sp.bestFor}</p>
-        </div>
-        <div class="dialogue-bubble">
-          <div class="bubble-row">
-            <span class="bubble-who">小學生這樣問</span>
-            <span>「${sp.studentSample}」</span>
-          </div>
-          <div class="bubble-row is-edu">
-            <span class="bubble-who">${sp.name}這樣引導</span>
-            <span>「${sp.eduSample}」</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xs);">
-          <button type="button" class="btn btn-primary" onclick="jumpToSpiritVault('${sp.id}')">
-            看「${sp.name}」的 5 個提示詞
-          </button>
-          <button type="button" class="btn btn-soft" onclick="sendSpiritToBuilder('${sp.name}')">
-            套用到 RISE 組裝實驗室
-          </button>
-        </div>
-      `;
-    }
-
-    function selectSpirit(spiritId) {
-      appState.activeSpirit = spiritId;
-      renderSpiritList();
-      renderSpiritDetail();
-      saveState();
-    }
-
-    function jumpToSpiritVault(spiritId) {
-      setVaultSpirit(spiritId);
-      var vault = document.getElementById(`vault-section`);
-      if (vault) vault.scrollIntoView({ behavior: `smooth` });
-    }
-
-    function sendSpiritToBuilder(spiritName) {
-      var sel = document.getElementById(`builder-spirit`);
-      if (sel) {
-        sel.value = spiritName;
-        updateRiseBuilder();
-      }
-      var rise = document.getElementById(`rise-section`);
-      if (rise) rise.scrollIntoView({ behavior: `smooth` });
-    }
-
-    // =========================================================================
-    // SECTION 1B: SUBJECT CONSTELLATION SIMULATOR
-    // =========================================================================
-    function selectSubject(subjKey) {
-      appState.subjectKey = subjKey;
-      var btns = document.querySelectorAll(`#subject-pills .chip`);
-      btns.forEach(function (btn) {
-        var active = btn.getAttribute(`data-subj`) === subjKey;
-        btn.classList.toggle(`is-active`, active);
-        btn.setAttribute(`aria-pressed`, active ? `true` : `false`);
-      });
-      renderConstellation();
-    }
-
-    function selectDiagMode(mode) {
-      appState.diagMode = mode;
-      var btns = document.querySelectorAll(`#diag-pills .chip`);
-      btns.forEach(function (btn) {
-        var active = btn.getAttribute(`data-diag`) === mode;
-        btn.classList.toggle(`is-active`, active);
-        btn.setAttribute(`aria-pressed`, active ? `true` : `false`);
-      });
-      renderConstellation();
-    }
-
-    function renderConstellation() {
-      var data = SUBJECT_NODES[appState.subjectKey] || SUBJECT_NODES.math;
-      var isRemedy = appState.diagMode === `remedy`;
-
-      var titleEl = document.getElementById(`constellation-title`);
-      var badgeEl = document.getElementById(`constellation-badge`);
-      var captionEl = document.getElementById(`constellation-caption`);
-      var prevLabel = document.getElementById(`svg-label-prev`);
-      var currLabel = document.getElementById(`svg-label-curr`);
-      var nextLabel = document.getElementById(`svg-label-next`);
-      var edgeLower = document.getElementById(`edge-lower`);
-      var edgeUpper = document.getElementById(`edge-upper`);
-      var cardsEl = document.getElementById(`node-status-cards`);
-
-      if (titleEl) titleEl.textContent = `${data.label}知識星空圖路徑`;
-      if (badgeEl) {
-        badgeEl.textContent = isRemedy ? `向下補救先備知識` : `向上推薦進階節點`;
-        badgeEl.className = isRemedy ? `badge badge-amber` : `badge badge-green`;
-      }
-      if (captionEl) captionEl.textContent = isRemedy ? data.remedyMsg : data.advanceMsg;
-      if (prevLabel) prevLabel.textContent = truncateNode(data.prev);
-      if (currLabel) currLabel.textContent = truncateNode(data.curr);
-      if (nextLabel) nextLabel.textContent = truncateNode(data.next);
-
-      if (edgeLower) edgeLower.setAttribute(`class`, isRemedy ? `svg-stroke-primary` : `svg-stroke-context`);
-      if (edgeUpper) edgeUpper.setAttribute(`class`, isRemedy ? `svg-stroke-context` : `svg-stroke-tertiary`);
-
-      if (cardsEl) {
-        cardsEl.innerHTML = `
-          <div class="node-pill-card ${isRemedy ? `is-remedy` : ``}">
-            <span class="badge badge-amber">先備知識</span>
-            <div>
-              <strong>${data.prev}</strong>
-              <div class="muted" style="font-size: var(--label-size);">${isRemedy ? `目前正在補救這個基礎概念` : `已穩固掌握此基礎`}</div>
-            </div>
-          </div>
-          <div class="node-pill-card is-highlighted">
-            <span class="badge">目前節點</span>
-            <div>
-              <strong>${data.curr}</strong>
-              <div class="muted" style="font-size: var(--label-size);">${isRemedy ? `診斷發現弱點，暫停並回補先備知識` : `診斷通過，準備好往下一關前進！`}</div>
-            </div>
-          </div>
-          <div class="node-pill-card ${!isRemedy ? `is-advance` : ``}">
-            <span class="badge badge-green">進階延伸</span>
-            <div>
-              <strong>${data.next}</strong>
-              <div class="muted" style="font-size: var(--label-size);">${!isRemedy ? `系統推薦的個人化進階挑戰` : `補救完成後就會解鎖此進階節點`}</div>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    function truncateNode(str) {
-      return str.length > 10 ? str.slice(0, 10) + `…` : str;
-    }
-
-    // =========================================================================
-    // SECTION 2: SCAFFOLDING SIMULATOR
-    // =========================================================================
-    function selectScaffoldScenario(scenKey) {
-      appState.scaffoldScenario = scenKey;
-      appState.scaffoldStep = 0;
-      var btns = document.querySelectorAll(`#scaffold-scenario-pills .chip`);
-      btns.forEach(function (btn) {
-        var active = btn.getAttribute(`data-scen`) === scenKey;
-        btn.classList.toggle(`is-active`, active);
-        btn.setAttribute(`aria-pressed`, active ? `true` : `false`);
-      });
-      renderScaffold();
-    }
-
-    function setScaffoldStep(idx) {
-      appState.scaffoldStep = idx;
-      renderScaffold();
-    }
-
-    function stepScaffold(delta) {
-      var scen = SCAFFOLD_SCENARIOS[appState.scaffoldScenario] || SCAFFOLD_SCENARIOS.math;
-      var next = appState.scaffoldStep + delta;
-      if (next < 0) next = 0;
-      if (next >= scen.steps.length) next = scen.steps.length - 1;
-      appState.scaffoldStep = next;
-      renderScaffold();
-    }
-
-    function renderScaffold() {
-      var scen = SCAFFOLD_SCENARIOS[appState.scaffoldScenario] || SCAFFOLD_SCENARIOS.math;
-      var trackEl = document.getElementById(`scaffold-track`);
-      var stageEl = document.getElementById(`scaffold-stage`);
-      var progEl = document.getElementById(`scaffold-progress-text`);
-      var prevBtn = document.getElementById(`scaffold-prev-btn`);
-      var nextBtn = document.getElementById(`scaffold-next-btn`);
-
-      if (trackEl) {
-        trackEl.innerHTML = scen.steps.map(function (st, idx) {
-          var cls = `step-node`;
-          if (idx === appState.scaffoldStep) cls += ` is-current`;
-          else if (idx < appState.scaffoldStep) cls += ` is-done`;
-          return `
-            <button type="button" class="${cls}" role="tab" aria-selected="${idx === appState.scaffoldStep ? `true` : `false`}" onclick="setScaffoldStep(${idx})">
-              <span class="step-num">階段 ${idx + 1}</span>
-              <span class="step-title">${st.label.replace(/^Step \d+ · /, ``)}</span>
-            </button>
-          `;
-        }).join(``);
-      }
-
-      var cur = scen.steps[appState.scaffoldStep];
-      if (stageEl && cur) {
-        stageEl.innerHTML = `
-          <div class="bubble-row ${cur.isEdu ? `is-edu` : ``}" style="padding: var(--space-lg); box-shadow: var(--shadow-pink);">
-            <span class="bubble-who">${cur.role}</span>
-            <p style="font-size: var(--subhead-size); font-weight: 700; margin-top: var(--space-xs);">${cur.text}</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: var(--space-xs);">
-            <span class="badge ${cur.isEdu ? `badge-sky` : `badge-grape`}">教學設計解析</span>
-            <p style="font-weight: 600;">${cur.note}</p>
-          </div>
-        `;
-      }
-
-      if (progEl) progEl.textContent = `目前顯示：${scen.name} 第 ${appState.scaffoldStep + 1} / ${scen.steps.length} 步`;
-      if (prevBtn) prevBtn.disabled = appState.scaffoldStep === 0;
-      if (nextBtn) {
-        nextBtn.disabled = appState.scaffoldStep === scen.steps.length - 1;
-        nextBtn.textContent = appState.scaffoldStep === scen.steps.length - 1 ? `已完成這輪鷹架體驗` : `下一步鷹架引導`;
-      }
-    }
-
-    // =========================================================================
-    // SECTION 3: RISE BUILDER
-    // =========================================================================
-    function applyBuilderPreset(grade, spirit, topic) {
-      var gradeEl = document.getElementById(`builder-grade`);
-      var spiritEl = document.getElementById(`builder-spirit`);
-      var topicEl = document.getElementById(`builder-topic`);
-      if (gradeEl) gradeEl.value = grade;
-      if (spiritEl) spiritEl.value = spirit;
-      if (topicEl) topicEl.value = topic;
-      updateRiseBuilder();
-    }
-
-    function updateRiseBuilder() {
-      var gradeEl = document.getElementById(`builder-grade`);
-      var spiritEl = document.getElementById(`builder-spirit`);
-      var topicEl = document.getElementById(`builder-topic`);
-      var styleEl = document.getElementById(`builder-style`);
-      var outEl = document.getElementById(`builder-output`);
-
-      var grade = gradeEl ? gradeEl.value : `三年級`;
-      var spirit = spiritEl ? spiritEl.value : `一般模式`;
-      var topic = topicEl && topicEl.value.trim() ? topicEl.value.trim() : `遇到了一個課堂難題`;
-      var style = styleEl ? styleEl.value : `請先不要直接告訴我答案，用生活中的例子一步一步考考我！`;
-
-      appState.riseBuilder = { grade: grade, spirit: spirit, topic: topic, style: style };
-      var assembled = `我是${grade}學生，現在想請教「${spirit}」：我最近${topic}，${style}`;
-
-      if (outEl) {
-        outEl.innerHTML = `<span class="prompt-prefix">我是${grade}學生，</span>現在想請教「${spirit}」：我最近${escapeHtml(topic)}，${style}`;
-      }
-      saveState();
-    }
-
-    function copyBuilderPrompt() {
-      var outEl = document.getElementById(`builder-output`);
-      if (!outEl) return;
-      var plain = outEl.textContent || ``;
-      copyTextToClipboard(plain, function () {
-        var btn = document.getElementById(`builder-copy-btn`);
-        if (btn) {
-          btn.classList.add(`is-copied`);
-          btn.textContent = `已複製！快去貼給 e度`;
-          setTimeout(function () {
-            btn.classList.remove(`is-copied`);
-            btn.innerHTML = `<i data-lucide="copy" aria-hidden="true" width="18" height="18"></i> 一鍵複製自訂提示詞`;
-            if (window.lucide) window.lucide.createIcons();
-          }, 1800);
-        }
-        showToast(`已複製你的 RISE 自訂提示詞！`);
-      });
-    }
-
-    function syncBuilderInputsFromState() {
-      var gradeEl = document.getElementById(`builder-grade`);
-      var spiritEl = document.getElementById(`builder-spirit`);
-      var topicEl = document.getElementById(`builder-topic`);
-      var styleEl = document.getElementById(`builder-style`);
-      if (gradeEl) gradeEl.value = appState.riseBuilder.grade;
-      if (spiritEl) spiritEl.value = appState.riseBuilder.spirit;
-      if (topicEl) topicEl.value = appState.riseBuilder.topic;
-      if (styleEl) styleEl.value = appState.riseBuilder.style;
-      updateRiseBuilder();
-    }
-
-    // =========================================================================
-    // SECTION 4: 35-PROMPT VAULT
-    // =========================================================================
-    function renderVaultSpiritTabs() {
-      var tabsEl = document.getElementById(`vault-spirit-tabs`);
-      if (!tabsEl) return;
-
-      var allBtn = `
-        <button type="button" class="chip ${appState.vaultSpirit === `all` ? `is-active` : ``}" role="tab" aria-selected="${appState.vaultSpirit === `all` ? `true` : `false`}" onclick="setVaultSpirit('all')">
-          全部精靈 (35)
-        </button>
-      `;
-
-      var spiritBtns = SPIRITS.map(function (sp) {
-        var count = PROMPTS.filter(function (p) { return p.spiritId === sp.id; }).length;
-        var active = appState.vaultSpirit === sp.id;
-        return `
-          <button type="button" class="chip ${active ? `is-active` : ``}" role="tab" aria-selected="${active ? `true` : `false`}" onclick="setVaultSpirit('${sp.id}')">
-            ${sp.name} (${count})
-          </button>
-        `;
-      }).join(``);
-
-      tabsEl.innerHTML = allBtn + spiritBtns;
-    }
-
-    function setVaultSpirit(spiritId) {
-      appState.vaultSpirit = spiritId;
-      renderVaultSpiritTabs();
-      renderPromptGrid();
-      saveState();
-    }
-
-    function setGradeFilter(gradeLevel) {
-      appState.vaultGrade = gradeLevel;
-      var btns = document.querySelectorAll(`#vault-grade-tabs .chip`);
-      btns.forEach(function (btn) {
-        var active = btn.getAttribute(`data-grade`) === gradeLevel;
-        btn.classList.toggle(`is-active`, active);
-        btn.setAttribute(`aria-pressed`, active ? `true` : `false`);
-      });
-      renderPromptGrid();
-      saveState();
-    }
-
-    function handleSearchInput(val) {
-      appState.vaultSearch = val.trim().toLowerCase();
-      renderPromptGrid();
-    }
-
-    function clearVaultFilters() {
-      appState.vaultSpirit = `all`;
-      appState.vaultGrade = `all`;
-      appState.vaultSearch = ``;
-      var searchEl = document.getElementById(`vault-search`);
-      if (searchEl) searchEl.value = ``;
-      renderVaultSpiritTabs();
-      setGradeFilter(`all`);
-      renderPromptGrid();
-      saveState();
-    }
-
-    function renderPromptGrid() {
-      var gridEl = document.getElementById(`prompt-grid`);
-      if (!gridEl) return;
-
-      var filtered = PROMPTS.filter(function (p) {
-        if (appState.vaultSpirit !== `all` && p.spiritId !== appState.vaultSpirit) return false;
-        if (appState.vaultGrade !== `all` && p.gradeLevel !== appState.vaultGrade) return false;
-        if (appState.vaultSearch) {
-          var hay = (p.title + ` ` + p.text + ` ` + p.spiritName + ` ` + p.gradeTag + ` ` + p.tip).toLowerCase();
-          if (hay.indexOf(appState.vaultSearch) === -1) return false;
-        }
-        return true;
+      const filtered = SPRITES.filter(function(s) {
+        const matchCat = activeCategory === 'all' || s.category === activeCategory;
+        const q = searchQuery.trim().toLowerCase();
+        const matchSearch = !q ||
+          s.name.toLowerCase().includes(q) ||
+          s.highlight.toLowerCase().includes(q) ||
+          s.scenario.toLowerCase().includes(q) ||
+          s.prompt.toLowerCase().includes(q);
+        return matchCat && matchSearch;
       });
 
       if (filtered.length === 0) {
-        gridEl.innerHTML = `
-          <div class="empty-state-card" style="grid-column: 1 / -1;">
-            <h3>找不到符合這個條件的提示詞卡片</h3>
-            <p class="muted">可能是同時選了特定年級與關鍵字，所以沒有完全吻合的情境。按一下按鈕就能恢復顯示全部 35 題！</p>
-            <button type="button" class="btn btn-primary" onclick="clearVaultFilters()">顯示全部 35 個提示詞</button>
-          </div>
-        `;
+        grid.innerHTML = '';
+        empty.classList.add('visible');
         return;
       }
 
-      gridEl.innerHTML = filtered.map(function (p) {
-        var sp = SPIRITS.find(function (item) { return item.id === p.spiritId; }) || SPIRITS[0];
-        var isPracticed = appState.copiedIds.indexOf(p.id) !== -1;
-        // Split out the leading "我是〇年級學生，" to highlight the required format cleanly
-        var match = p.text.match(/^(我是[一二三四五六]年級學生，)(.*)$/);
-        var formattedText = match
-          ? `<span class="prompt-prefix">${escapeHtml(match[1])}</span>${escapeHtml(match[2])}`
-          : escapeHtml(p.text);
+      empty.classList.remove('visible');
+      grid.innerHTML = filtered.map(function(s) {
+        const isCopied = appState.copiedSprites.includes(s.id);
+        const newTag = s.isNew ? `<span class="sprite-tag new-badge">新增實體精靈</span>` : ``;
+        const btnClass = isCopied ? `btn btn-primary copy-btn copied` : `btn btn-primary copy-btn`;
+        const btnText = isCopied ? `已收集複製！再複製一次` : `一鍵複製專屬提示詞`;
 
         return `
-          <div class="prompt-card-wrap">
-            <article class="prompt-card">
-              <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-                <div class="prompt-card-header">
-                  <span class="prompt-spirit-tag">
-                    ${sp.svgMarkup}
-                    <span>${p.spiritName}</span>
-                  </span>
-                  <div style="display: flex; gap: var(--space-xs); align-items: center;">
-                    ${isPracticed ? `<span class="badge badge-green">已收集貼紙</span>` : ``}
-                    <span class="badge badge-sky">${p.gradeTag}</span>
-                  </div>
-                </div>
-                <h3>${escapeHtml(p.title)}</h3>
-                <div class="prompt-text-box" id="prompt-text-${p.id}">${formattedText}</div>
-                <div class="prompt-tip">
-                  <i data-lucide="lightbulb" aria-hidden="true" width="16" height="16" style="flex-shrink: 0; margin-top: 2px;"></i>
-                  <span>${escapeHtml(p.tip)}</span>
-                </div>
+          <article class="sprite-card card-wrapper">
+            <div class="sprite-top">
+              <div class="sprite-avatar ${s.avatarBg}">
+                ${s.svg}
               </div>
-              <div class="prompt-card-footer">
-                <button type="button" class="btn btn-primary copy-btn" id="copy-btn-${p.id}" onclick="copyVaultPrompt('${p.id}')">
-                  <i data-lucide="copy" aria-hidden="true" width="18" height="18"></i>
-                  一鍵複製提示詞
-                </button>
+              <div class="sprite-meta">
+                <div class="sprite-badges">
+                  <span class="sprite-num">0${s.id}</span>
+                  <span class="sprite-tag">${s.categoryLabel}</span>
+                  ${newTag}
+                </div>
+                <h3 class="sprite-name">${s.name}</h3>
+                <p class="sprite-highlight">${s.highlight}</p>
               </div>
-            </article>
-          </div>
-        `;
-      }).join(``);
+            </div>
 
-      if (window.lucide) window.lucide.createIcons();
-      updateVaultProgress();
+            <div class="sprite-scenario">
+              <strong>小學生活動情境：</strong>${s.scenario}
+            </div>
+
+            <div class="prompt-box">
+              <div class="prompt-label">
+                <i data-lucide="sparkles" width="14" height="14"></i>
+                小學生專屬魔法提問句
+              </div>
+              <p class="prompt-text">${s.prompt}</p>
+              <button type="button" class="${btnClass}" onclick="copySpritePrompt(${s.id}, this)">
+                <i data-lucide="${isCopied ? 'check' : 'copy'}" width="17" height="17"></i>
+                <span>${btnText}</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
     }
 
-    function copyVaultPrompt(promptId) {
-      var item = PROMPTS.find(function (p) { return p.id === promptId; });
-      if (!item) return;
+    function filterSprites(category, btn) {
+      activeCategory = category;
+      document.querySelectorAll('.toolbar-panel .filter-pill').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      if (btn) btn.classList.add('active');
+      renderSprites();
+    }
 
-      copyTextToClipboard(item.text, function () {
-        if (appState.copiedIds.indexOf(promptId) === -1) {
-          appState.copiedIds.push(promptId);
-          saveState();
-        }
-        var btn = document.getElementById(`copy-btn-${promptId}`);
-        if (btn) {
-          btn.classList.add(`is-copied`);
-          btn.innerHTML = `<i data-lucide="check" aria-hidden="true" width="18" height="18"></i> 複製成功！可貼上 e度`;
-          if (window.lucide) window.lucide.createIcons();
-          setTimeout(function () {
-            renderPromptGrid();
-          }, 1500);
+    function searchSprites(val) {
+      searchQuery = val || '';
+      renderSprites();
+    }
+
+    function clearSpriteFilters() {
+      activeCategory = 'all';
+      searchQuery = '';
+      const input = document.getElementById('sprite-search');
+      if (input) input.value = '';
+      document.querySelectorAll('.toolbar-panel .filter-pill').forEach(function(el, i) {
+        el.classList.toggle('active', i === 0);
+      });
+      renderSprites();
+    }
+
+    function copySpritePrompt(spriteId, btn) {
+      const sprite = SPRITES.find(function(item) { return item.id === spriteId; });
+      if (!sprite) return;
+
+      copyTextSafely(sprite.prompt);
+
+      if (!appState.copiedSprites.includes(spriteId)) {
+        appState.copiedSprites.push(spriteId);
+        saveAppState();
+      }
+
+      updateSpriteProgress();
+      if (btn) {
+        btn.classList.add('copied');
+        const span = btn.querySelector('span');
+        if (span) span.textContent = `已複製成功！快去因材網貼上`;
+      }
+      showToast(`已複製「${sprite.name}」提示詞！`);
+    }
+
+    function copyTextSafely(text) {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard.writeText(text).catch(function() {
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        // Ignore silent copy fallback errors
+      }
+      document.body.removeChild(ta);
+    }
+
+    function updateSpriteProgress() {
+      const count = appState.copiedSprites.length;
+      const pct = Math.round((count / SPRITES.length) * 100);
+      const textEl = document.getElementById('sprite-progress-text');
+      const barEl = document.getElementById('sprite-progress-bar');
+      if (textEl) {
+        textEl.textContent = count === 9
+          ? `太強了！9 / 9 位精靈提示詞全部收集完成！`
+          : `已收集提示詞：${count} / 9 位精靈`;
+      }
+      if (barEl) {
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function resetSpriteProgress(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `再點一次確認清除`;
+        setTimeout(function() {
+          if (btn.dataset.armed === 'true') {
+            btn.dataset.armed = 'false';
+            btn.innerHTML = `<i data-lucide="rotate-ccw" width="16" height="16"></i> 清除收集紀錄`;
+            if (window.lucide) window.lucide.createIcons();
+          }
+        }, 3000);
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.innerHTML = `<i data-lucide="rotate-ccw" width="16" height="16"></i> 清除收集紀錄`;
+      appState.copiedSprites = [];
+      saveAppState();
+      updateSpriteProgress();
+      renderSprites();
+      showToast(`已重設精靈收集紀錄`);
+    }
+
+    // Lab A: Fraction Strip
+    function toggleFrac(btn, row) {
+      if (!btn) return;
+      const cls = row === 'top' ? 'filled-pink' : 'filled-sky';
+      btn.classList.toggle(cls);
+      updateFractionComparison();
+    }
+
+    function updateFractionComparison() {
+      const topStrip = document.getElementById('strip-2');
+      const botStrip = document.getElementById('strip-4');
+      const topVal = document.getElementById('frac-top-val');
+      const botVal = document.getElementById('frac-bot-val');
+      const msg = document.getElementById('frac-compare-msg');
+      if (!topStrip || !botStrip || !topVal || !botVal || !msg) return;
+
+      const topCount = topStrip.querySelectorAll('.filled-pink').length;
+      const botCount = botStrip.querySelectorAll('.filled-sky').length;
+      topVal.textContent = `已選 ${topCount} / 2`;
+      botVal.textContent = `已選 ${botCount} / 4`;
+
+      if (topCount * 2 === botCount && topCount > 0) {
+        msg.textContent = `太棒了！${topCount}/2 和 ${botCount}/4 塗起來一樣長，這就是「等值分數」喔！`;
+      } else if (topCount * 2 > botCount) {
+        msg.textContent = `上方 ${topCount}/2 比下方 ${botCount}/4 更多喔！試著多點一格 1/4 看看！`;
+      } else if (topCount * 2 < botCount) {
+        msg.textContent = `下方 ${botCount}/4 比上方 ${topCount}/2 更多喔！再比較看看兩條的總長度！`;
+      } else {
+        msg.textContent = `試著點選上方和下方的巧克力格，看看哪時候兩條會一樣長！`;
+      }
+    }
+
+    // Lab B: Dialogue Preview
+    function showDialogueDemo(key, btn) {
+      const box = document.getElementById('dialogue-demo-box');
+      if (!box) return;
+      if (btn) {
+        btn.parentElement.querySelectorAll('.seg-btn').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+      }
+      const turns = DIALOGUE_DEMOS[key] || DIALOGUE_DEMOS.general;
+      box.innerHTML = turns.map(function(t) {
+        const label = t.who === 'student' ? `小學生：` : `e度 夥伴：`;
+        return `<div class="chat-bubble ${t.who}"><strong>${label}</strong>${t.text}</div>`;
+      }).join('');
+    }
+
+    // Section 2: Safety Quiz
+    function answerQuiz(qNum, isCorrect, btn) {
+      if (!btn) return;
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.quiz-opt').forEach(function(el) {
+        el.classList.remove('is-correct', 'is-wrong');
+      });
+      btn.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+
+      const fb = document.getElementById(`quiz-fb-${qNum}`);
+      if (fb) {
+        fb.classList.remove('text-positive', 'text-error');
+        if (isCorrect) {
+          fb.classList.add('text-positive');
+          fb.textContent = `答對了！你就是最棒的 AI 安全小偵探！`;
         } else {
-          renderPromptGrid();
+          fb.classList.add('text-error');
+          fb.textContent = `差一點點！再想一想 AI 素養守則喔！`;
         }
-        updateVaultProgress();
-        showToast(`已複製「${item.title}」！貼到因材網 e度試試看`);
+      }
+
+      appState.quizAnswers[qNum] = isCorrect;
+      saveAppState();
+      updateQuizBadge();
+    }
+
+    function updateQuizBadge() {
+      const badge = document.getElementById('quiz-badge-status');
+      if (!badge) return;
+      let score = 0;
+      [1, 2, 3].forEach(function(n) {
+        if (appState.quizAnswers[n] === true) score += 1;
+      });
+      badge.innerHTML = score === 3
+        ? `<i data-lucide="award" width="16" height="16"></i> 恭喜獲得：AI 素養小達人（3 / 3 滿分）`
+        : `<i data-lucide="star" width="16" height="16"></i> 目前得分：${score} / 3 題`;
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // Section 3: Star Map Diagnosis Simulator
+    function simulateStarPath(mode) {
+      const nodeDown = document.getElementById('node-down');
+      const nodeMid = document.getElementById('node-mid');
+      const nodeUp = document.getElementById('node-up');
+      const edgeDown = document.getElementById('edge-down');
+      const edgeUp = document.getElementById('edge-up');
+      const label = document.getElementById('star-state-label');
+      const exp = document.getElementById('star-explanation');
+      if (!nodeDown || !nodeMid || !nodeUp || !edgeDown || !edgeUp || !label || !exp) return;
+
+      nodeDown.setAttribute('fill', 'var(--surface-container-low)');
+      nodeMid.setAttribute('fill', 'var(--surface-container-low)');
+      nodeUp.setAttribute('fill', 'var(--surface-container-low)');
+      edgeDown.setAttribute('stroke', 'var(--outline-variant)');
+      edgeUp.setAttribute('stroke', 'var(--outline-variant)');
+
+      if (mode === 'up') {
+        nodeUp.setAttribute('fill', 'var(--mint-container)');
+        edgeUp.setAttribute('stroke', 'var(--positive)');
+        label.textContent = `觸發機制：向上學習（挑戰上位節點）`;
+        exp.textContent = `類似題答對！系統給予正向鼓勵，並跳出「向上學習」視窗，引導學生挑戰更高階的上位知識節點！`;
+      } else if (mode === 'down') {
+        nodeDown.setAttribute('fill', 'var(--tangerine-container)');
+        edgeDown.setAttribute('stroke', 'var(--tangerine)');
+        label.textContent = `觸發機制：向下補救（回到先備知識）`;
+        exp.textContent = `類似題答錯！系統先給予提示與引導，並跳出「向下學習」視窗，帶學生回到下位基礎節點把根基補穩！`;
+      } else {
+        nodeMid.setAttribute('fill', 'var(--primary-container)');
+        label.textContent = `目前位置：單元診斷節點`;
+        exp.textContent = `學生完成單元診斷測驗並取得診斷報告後，學科領域夥伴會針對「未精熟的錯題」展開蘇格拉底對話式引導，理解概念後再提供新題目檢核！`;
+      }
+    }
+
+    // Section 4: Teacher Zone Interactions
+    function showReportTab(key, btn) {
+      const card = document.getElementById('report-detail-card');
+      if (!card) return;
+      if (btn) {
+        btn.parentElement.querySelectorAll('.seg-btn').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+      }
+      const data = REPORT_TABS[key] || REPORT_TABS.general;
+      const filterChips = data.filters.map(function(f) {
+        return `<span class="data-pill">${f}</span>`;
+      }).join('');
+
+      card.innerHTML = `
+        <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+          <h4 class="subhead text-secondary">${data.title}</h4>
+          <p style="margin:0;color:var(--on-surface);font-size:0.95rem;">${data.desc}</p>
+          <div class="quote-callout callout-mint">
+            ${data.insight}
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+          <span class="field-label">可篩選與追蹤的欄位：</span>
+          <div class="filter-tags">${filterChips}</div>
+        </div>
+      `;
+    }
+
+    function showDesignerPreset(key, btn) {
+      const box = document.getElementById('designer-preset-box');
+      if (!box) return;
+      if (btn) {
+        btn.parentElement.querySelectorAll('.filter-pill').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+      }
+      const p = DESIGNER_PRESETS[key] || DESIGNER_PRESETS.math;
+      box.innerHTML = `
+        <p class="text-primary" style="margin:0 0 6px 0;font-weight:900;">${p.title}</p>
+        <p style="margin:0 0 6px 0;"><strong>設定提示詞：</strong>${p.prompt}</p>
+        <p class="text-muted" style="margin:0;"><strong>掛載知識庫：</strong>${p.kb}</p>
+      `;
+    }
+
+    function showA4Page(pageNum, btn) {
+      const box = document.getElementById('a4-preview-box');
+      if (!box) return;
+      if (btn) {
+        btn.parentElement.querySelectorAll('.a4-page-btn').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+      }
+      const p = A4_PAGES[pageNum] || A4_PAGES[1];
+      box.innerHTML = `
+        <p class="text-secondary" style="margin:0 0 4px 0;font-weight:900;">${p.title}</p>
+        <p style="margin:0;font-size:0.93rem;color:var(--on-surface);">${p.body}</p>
+      `;
+    }
+
+    // Teacher Checklist
+    function toggleChecklist(checkbox) {
+      if (!checkbox) return;
+      const key = checkbox.getAttribute('data-check');
+      if (!key) return;
+      appState.teacherChecks[key] = checkbox.checked;
+      saveAppState();
+    }
+
+    function resetTeacherChecklist(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `再點一次確認重設`;
+        setTimeout(function() {
+          if (btn.dataset.armed === 'true') {
+            btn.dataset.armed = 'false';
+            btn.textContent = `重設檢核表`;
+          }
+        }, 3000);
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.textContent = `重設檢核表`;
+      appState.teacherChecks = {};
+      document.querySelectorAll('input[data-check]').forEach(function(cb) {
+        cb.checked = false;
+      });
+      saveAppState();
+      showToast(`已重設教師檢核表`);
+    }
+
+    // Audience Spotlight Switcher
+    function setRoleFocus(role, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.role-btn').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+      }
+      document.querySelectorAll('.section-block').forEach(function(sec) {
+        const aud = sec.getAttribute('data-audience');
+        sec.classList.remove('spotlight-dim', 'spotlight-focus');
+        if (role === 'all') {
+          sec.classList.add('spotlight-focus');
+        } else if (aud === role || aud === 'both') {
+          sec.classList.add('spotlight-focus');
+        } else {
+          sec.classList.add('spotlight-dim');
+        }
+      });
+
+      if (role === 'student') {
+        const target = document.getElementById('spirits');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      } else if (role === 'teacher') {
+        const target = document.getElementById('teacher-zone');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Toast notification helper
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast-pill');
+      const msgEl = document.getElementById('toast-msg');
+      if (!toast || !msgEl) return;
+      msgEl.textContent = message;
+      toast.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    // Persistence via notebookAppApi
+    async function saveAppState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (e) {
+          // Ignore transient persistence error
+        }
+      }
+    }
+
+    function restoreQuizAndChecklist() {
+      [1, 2, 3].forEach(function(qNum) {
+        if (qNum in appState.quizAnswers) {
+          const isCorrect = appState.quizAnswers[qNum];
+          const fb = document.getElementById(`quiz-fb-${qNum}`);
+          if (fb) {
+            fb.classList.remove('text-positive', 'text-error');
+            fb.classList.add(isCorrect ? 'text-positive' : 'text-error');
+            fb.textContent = isCorrect
+              ? `答對了！你就是最棒的 AI 安全小偵探！`
+              : `差一點點！再想一想 AI 素養守則喔！`;
+          }
+        }
+      });
+      updateQuizBadge();
+
+      document.querySelectorAll('input[data-check]').forEach(function(cb) {
+        const key = cb.getAttribute('data-check');
+        if (key && appState.teacherChecks[key]) {
+          cb.checked = true;
+        }
       });
     }
 
-    function updateVaultProgress() {
-      var count = appState.copiedIds.length;
-      var total = PROMPTS.length;
-      var pct = Math.round((count / total) * 100);
-      var fill = document.getElementById(`vault-progress-fill`);
-      var text = document.getElementById(`vault-progress-text`);
-      if (fill) fill.style.width = `${pct}%`;
-      if (text) text.textContent = `${count} / ${total} 題`;
-    }
-
-    function handleResetProgress(btn) {
-      if (appState.copiedIds.length === 0) {
-        showToast(`目前尚未收集貼紙，先選一題按複製試試看！`);
+    // Scroll reveal observer
+    function setupRevealObserver() {
+      const items = document.querySelectorAll('.reveal-item');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function(el) { el.classList.add('in-view'); });
         return;
       }
-      if (btn.dataset.armed !== `true`) {
-        btn.dataset.armed = `true`;
-        btn.textContent = `再點一次確認清除`;
-        setTimeout(function () {
-          if (btn.dataset.armed === `true`) {
-            btn.dataset.armed = `false`;
-            btn.textContent = `清除練習紀錄`;
-          }
-        }, 3500);
-        return;
-      }
-      btn.dataset.armed = `false`;
-      btn.textContent = `清除練習紀錄`;
-      appState.copiedIds = [];
-      saveState();
-      renderPromptGrid();
-      updateVaultProgress();
-      showToast(`已重設練習貼紙紀錄`);
-    }
-
-    // =========================================================================
-    // UTILITIES & INITIALIZATION
-    // =========================================================================
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, `&amp;`)
-        .replace(/</g, `&lt;`)
-        .replace(/>/g, `&gt;`)
-        .replace(/"/g, `&quot;`);
-    }
-
-    function setupScrollReveal() {
-      var sections = document.querySelectorAll(`.reveal-section`);
-      if (!(`IntersectionObserver` in window)) {
-        sections.forEach(function (sec) { sec.classList.add(`is-visible`); });
-        return;
-      }
-      var obs = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(function (entry) {
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add(`is-visible`);
-            observer.unobserve(entry.target);
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.08 });
-      sections.forEach(function (sec) { obs.observe(sec); });
+      }, { threshold: 0.1 });
+      items.forEach(function(el) { obs.observe(el); });
     }
 
     async function initApp() {
-      await loadState();
-
-      renderSpiritList();
-      renderSpiritDetail();
-      renderConstellation();
-      renderScaffold();
-      syncBuilderInputsFromState();
-      renderVaultSpiritTabs();
-      setGradeFilter(appState.vaultGrade);
-      renderPromptGrid();
-      updateVaultProgress();
-      setupScrollReveal();
-
-      if (window.lucide) {
-        window.lucide.createIcons();
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            appState = {
+              copiedSprites: Array.isArray(saved.copiedSprites) ? saved.copiedSprites : [],
+              quizAnswers: saved.quizAnswers && typeof saved.quizAnswers === 'object' ? saved.quizAnswers : {},
+              teacherChecks: saved.teacherChecks && typeof saved.teacherChecks === 'object' ? saved.teacherChecks : {}
+            };
+          }
+        } catch (e) {
+          // Proceed with default state
+        }
       }
 
-      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+      renderSprites();
+      updateSpriteProgress();
+      showDialogueDemo('general', null);
+      showReportTab('general', null);
+      showDesignerPreset('math', null);
+      showA4Page(1, null);
+      restoreQuizAndChecklist();
+      setupRevealObserver();
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
         window.notebookAppApi.notifyAppReady();
       }
     }
 
-    document.addEventListener(`DOMContentLoaded`, initApp);
+    document.addEventListener('DOMContentLoaded', initApp);
   </script>
 </body>
 </html>
